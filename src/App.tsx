@@ -9,6 +9,7 @@ import { Layout } from "@/components/layout/Layout";
 import Landing from "./pages/Landing";
 import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
+import ParentDashboard from "./pages/ParentDashboard";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
                 <Route path="/" element={<Landing />} />
                 <Route path="/student" element={<StudentDashboard />} />
                 <Route path="/teacher" element={<TeacherDashboard />} />
+                <Route path="/parent" element={<ParentDashboard />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
