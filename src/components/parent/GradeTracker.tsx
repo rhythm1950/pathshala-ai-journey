@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { FileText, Calendar, Award } from 'lucide-react';
+import { FileText, Calendar, Award, Download } from 'lucide-react';
+import { exportGradeReportPDF } from '@/lib/pdfExport';
+import { toast } from '@/hooks/use-toast';
 
 const gradesData = {
   exams: [
@@ -54,13 +57,34 @@ export function GradeTracker() {
   const totalMarks = selectedExamData?.subjects.reduce((acc, s) => acc + s.marks, 0) || 0;
   const totalPossible = selectedExamData?.subjects.reduce((acc, s) => acc + s.total, 0) || 0;
 
+  const handleExportGrades = () => {
+    if (!selectedExamData) return;
+    
+    const grades = selectedExamData.subjects.map(s => ({
+      subject: s.name,
+      grade: s.grade,
+      percentage: Math.round((s.marks / s.total) * 100),
+      trend: s.marks >= 80 ? '↑ Improving' : s.marks >= 60 ? '→ Stable' : '↓ Needs Attention'
+    }));
+    
+    exportGradeReportPDF('সারা', grades);
+    toast({
+      title: "গ্রেড রিপোর্ট ডাউনলোড হচ্ছে",
+      description: "গ্রেড রিপোর্ট PDF হিসেবে ডাউনলোড হচ্ছে।",
+    });
+  };
+
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Award className="w-5 h-5" />
           গ্রেড ট্র্যাকার
         </CardTitle>
+        <Button variant="outline" size="sm" onClick={handleExportGrades}>
+          <Download className="w-4 h-4 mr-2" />
+          রিপোর্ট ডাউনলোড
+        </Button>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="exams" className="space-y-4">

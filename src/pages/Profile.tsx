@@ -7,8 +7,9 @@ import { Label } from '@/components/ui/label';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { User, Mail, Phone, MapPin, Calendar, Award, BookOpen, Edit2, Save, X } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Calendar, Award, BookOpen, Edit2, Save, X, Download, FileText } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { exportCertificatePDF, exportProgressReportPDF } from '@/lib/pdfExport';
 
 export default function Profile() {
   const { t } = useLanguage();
@@ -51,6 +52,22 @@ export default function Profile() {
     });
   };
 
+  const handleExportProgressReport = () => {
+    exportProgressReportPDF(profile, stats, achievements, recentCertificates);
+    toast({
+      title: "রিপোর্ট ডাউনলোড হচ্ছে",
+      description: "আপনার অগ্রগতি রিপোর্ট PDF হিসেবে ডাউনলোড হচ্ছে।",
+    });
+  };
+
+  const handleExportCertificate = (certificate: typeof recentCertificates[0]) => {
+    exportCertificatePDF(certificate, profile.name);
+    toast({
+      title: "সার্টিফিকেট ডাউনলোড হচ্ছে",
+      description: `${certificate.name} সার্টিফিকেট ডাউনলোড হচ্ছে।`,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -76,23 +93,31 @@ export default function Profile() {
                 <p className="text-muted-foreground">{profile.bio}</p>
               </div>
 
-              <Button
-                variant={isEditing ? "outline" : "default"}
-                onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}
-                className="mb-4"
-              >
-                {isEditing ? (
-                  <>
-                    <X className="w-4 h-4 mr-2" />
-                    বাতিল
-                  </>
-                ) : (
-                  <>
-                    <Edit2 className="w-4 h-4 mr-2" />
-                    সম্পাদনা
-                  </>
-                )}
-              </Button>
+              <div className="flex gap-2 mb-4">
+                <Button
+                  variant="outline"
+                  onClick={handleExportProgressReport}
+                >
+                  <FileText className="w-4 h-4 mr-2" />
+                  রিপোর্ট ডাউনলোড
+                </Button>
+                <Button
+                  variant={isEditing ? "outline" : "default"}
+                  onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}
+                >
+                  {isEditing ? (
+                    <>
+                      <X className="w-4 h-4 mr-2" />
+                      বাতিল
+                    </>
+                  ) : (
+                    <>
+                      <Edit2 className="w-4 h-4 mr-2" />
+                      সম্পাদনা
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -247,7 +272,7 @@ export default function Profile() {
 
           <TabsContent value="certificates">
             <Card>
-              <CardHeader>
+              <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center gap-2">
                   <BookOpen className="w-5 h-5" />
                   সার্টিফিকেটসমূহ
@@ -269,9 +294,19 @@ export default function Profile() {
                           <div className="text-sm text-muted-foreground">{cert.issueDate}</div>
                         </div>
                       </div>
-                      <Badge variant="outline" className="text-primary border-primary">
-                        {cert.grade}
-                      </Badge>
+                      <div className="flex items-center gap-3">
+                        <Badge variant="outline" className="text-primary border-primary">
+                          {cert.grade}
+                        </Badge>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleExportCertificate(cert)}
+                          title="ডাউনলোড সার্টিফিকেট"
+                        >
+                          <Download className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </div>
                   ))}
                 </div>
