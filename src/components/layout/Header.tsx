@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Globe, User, Bell, Settings } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, HelpCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
@@ -87,6 +87,13 @@ export function Header() {
               <Button variant="ghost" size="icon" className="h-9 w-9 relative">
                 <Bell className="h-4 w-4" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-highlight rounded-full" />
+              </Button>
+            </Link>
+
+            {/* Help */}
+            <Link to="/help">
+              <Button variant="ghost" size="icon" className="h-9 w-9">
+                <HelpCircle className="h-4 w-4" />
               </Button>
             </Link>
 
