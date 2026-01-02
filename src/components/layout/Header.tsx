@@ -19,6 +19,7 @@ export function Header() {
 
   const navLinks = [
     { path: '/', label: t('nav.home') },
+    { path: '/courses', label: language === 'bn' ? 'কোর্স' : 'Courses' },
     { path: '/student', label: t('nav.student') },
     { path: '/teacher', label: t('nav.teacher') },
     { path: '/parent', label: t('nav.parent') },
