@@ -70,7 +70,7 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-background py-8">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-5xl">
         {/* Profile Header */}
         <Card className="mb-8 overflow-hidden">
           <div className="h-32 bg-gradient-to-r from-primary via-secondary to-accent" />

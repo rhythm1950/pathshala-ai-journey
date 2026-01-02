@@ -43,7 +43,7 @@ export default function TeacherDashboard() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-8 px-4 md:px-8 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold">
@@ -81,7 +81,7 @@ export default function TeacherDashboard() {
 
       {/* Main Content */}
       <section className="py-8 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <PerformanceHeatmap />
             <AIContentGenerator />
