@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -216,13 +217,14 @@ const Courses = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleContinue = (courseId: string) => {
-    toast({
-      title: language === "bn" ? "কোর্স শুরু হচ্ছে..." : "Starting Course...",
-      description: language === "bn" 
-        ? "আপনার শেষ পাঠে নিয়ে যাওয়া হচ্ছে" 
-        : "Taking you to your last lesson",
-    });
+    navigate(`/courses/${courseId}`);
+  };
+
+  const handleViewCourse = (courseId: string) => {
+    navigate(`/courses/${courseId}`);
   };
 
   const getLevelBadgeColor = (level: string) => {
@@ -298,7 +300,11 @@ const Courses = () => {
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCourses.map(course => (
-            <Card key={course.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Card 
+              key={course.id} 
+              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => handleViewCourse(course.id)}
+            >
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={course.image} 
@@ -375,7 +381,10 @@ const Courses = () => {
                 {course.enrolled ? (
                   <Button 
                     className="w-full" 
-                    onClick={() => handleContinue(course.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleContinue(course.id);
+                    }}
                   >
                     <Play className="h-4 w-4 mr-2" />
                     {language === "bn" ? "চালিয়ে যান" : "Continue"}
@@ -387,7 +396,10 @@ const Courses = () => {
                         ? (language === "bn" ? "বিনামূল্যে" : "Free")
                         : `৳${course.price.toLocaleString()}`}
                     </span>
-                    <Button onClick={() => handleEnroll(course.id)}>
+                    <Button onClick={(e) => {
+                      e.stopPropagation();
+                      handleEnroll(course.id);
+                    }}>
                       {language === "bn" ? "নথিভুক্ত হন" : "Enroll Now"}
                     </Button>
                   </div>
