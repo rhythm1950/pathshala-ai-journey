@@ -13,10 +13,15 @@ import {
   Bell,
   BookOpen,
   Award,
-  Clock
+  Clock,
+  HelpCircle
 } from 'lucide-react';
+import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
+import { useOnboarding } from '@/hooks/useOnboarding';
+import { Button } from '@/components/ui/button';
 
 export default function ParentDashboard() {
+  const { showTour, completeTour, skipTour, startTour, hasCompleted } = useOnboarding('parent');
   const quickStats = [
     { label: 'সার্বিক গড়', value: '82%', icon: TrendingUp, color: 'text-primary' },
     { label: 'উপস্থিতি হার', value: '95%', icon: Calendar, color: 'text-green-500' },
@@ -33,14 +38,27 @@ export default function ParentDashboard() {
 
   return (
     <div className="min-h-screen bg-background py-8">
+      {/* Onboarding Tour */}
+      {showTour && (
+        <OnboardingTour role="parent" onComplete={completeTour} onSkip={skipTour} />
+      )}
+
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
-            <Users className="w-8 h-8 text-primary" />
-            অভিভাবক পোর্টাল
-          </h1>
-          <p className="text-muted-foreground mt-2">আপনার সন্তানের শিক্ষা যাত্রা পর্যবেক্ষণ করুন</p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
+              <Users className="w-8 h-8 text-primary" />
+              অভিভাবক পোর্টাল
+            </h1>
+            <p className="text-muted-foreground mt-2">আপনার সন্তানের শিক্ষা যাত্রা পর্যবেক্ষণ করুন</p>
+          </div>
+          {hasCompleted && (
+            <Button variant="outline" size="sm" onClick={startTour}>
+              <HelpCircle className="w-4 h-4 mr-2" />
+              টিউটোরিয়াল
+            </Button>
+          )}
         </div>
 
         {/* Quick Stats */}
