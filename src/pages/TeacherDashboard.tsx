@@ -1,16 +1,20 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { teacherData } from "@/data/demoData";
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, BookOpen, Video, Award } from "lucide-react";
+import { Users, BookOpen, Video, Award, HelpCircle } from "lucide-react";
 import { PerformanceHeatmap } from "@/components/teacher/PerformanceHeatmap";
 import { AIContentGenerator } from "@/components/teacher/AIContentGenerator";
 import { AssignmentGrader } from "@/components/teacher/AssignmentGrader";
 import { ClassScheduler } from "@/components/teacher/ClassScheduler";
 import { StudentAnalytics } from "@/components/teacher/StudentAnalytics";
 import { ResourceLibrary } from "@/components/teacher/ResourceLibrary";
+import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
+import { useOnboarding } from '@/hooks/useOnboarding';
+import { Button } from '@/components/ui/button';
 
 export default function TeacherDashboard() {
   const { language } = useLanguage();
+  const { showTour, completeTour, skipTour, startTour, hasCompleted } = useOnboarding('teacher');
 
   const stats = [
     {
@@ -41,6 +45,11 @@ export default function TeacherDashboard() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Onboarding Tour */}
+      {showTour && (
+        <OnboardingTour role="teacher" onComplete={completeTour} onSkip={skipTour} />
+      )}
+
       {/* Hero Section */}
       <section className="relative py-8 px-4 md:px-8 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
         <div className="container mx-auto max-w-6xl">
@@ -56,6 +65,12 @@ export default function TeacherDashboard() {
                 {language === 'bn' ? teacherData.department : 'Mathematics Department'}
               </p>
             </div>
+            {hasCompleted && (
+              <Button variant="outline" size="sm" onClick={startTour}>
+                <HelpCircle className="w-4 h-4 mr-2" />
+                {language === 'bn' ? 'টিউটোরিয়াল' : 'Tutorial'}
+              </Button>
+            )}
           </div>
 
           {/* Stats Grid */}
