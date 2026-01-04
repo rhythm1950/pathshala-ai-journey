@@ -98,10 +98,18 @@ export default function TeacherDashboard() {
       <section className="py-8 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <PerformanceHeatmap />
-            <AIContentGenerator />
-            <AssignmentGrader />
-            <ClassScheduler />
+            <div data-tour="performance-heatmap">
+              <PerformanceHeatmap />
+            </div>
+            <div data-tour="ai-content">
+              <AIContentGenerator />
+            </div>
+            <div data-tour="assignment-grader">
+              <AssignmentGrader />
+            </div>
+            <div data-tour="class-scheduler">
+              <ClassScheduler />
+            </div>
             <StudentAnalytics />
             <ResourceLibrary />
           </div>

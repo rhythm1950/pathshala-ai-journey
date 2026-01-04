@@ -76,7 +76,7 @@ export default function ParentDashboard() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="progress" className="space-y-6">
-          <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full">
+          <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full" data-tour="child-progress">
             <TabsTrigger value="progress" className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
               <span className="hidden sm:inline">অগ্রগতি</span>
@@ -85,11 +85,11 @@ export default function ParentDashboard() {
               <BookOpen className="w-4 h-4" />
               <span className="hidden sm:inline">গ্রেড</span>
             </TabsTrigger>
-            <TabsTrigger value="attendance" className="flex items-center gap-2">
+            <TabsTrigger value="attendance" className="flex items-center gap-2" data-tour="attendance-tab">
               <Calendar className="w-4 h-4" />
               <span className="hidden sm:inline">উপস্থিতি</span>
             </TabsTrigger>
-            <TabsTrigger value="communication" className="flex items-center gap-2">
+            <TabsTrigger value="communication" className="flex items-center gap-2" data-tour="communication-tab">
               <MessageSquare className="w-4 h-4" />
               <span className="hidden sm:inline">যোগাযোগ</span>
             </TabsTrigger>
@@ -125,7 +125,7 @@ export default function ParentDashboard() {
 
             {/* Sidebar - Notifications */}
             <div className="space-y-6">
-              <Card>
+              <Card data-tour="notifications">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Bell className="w-5 h-5" />

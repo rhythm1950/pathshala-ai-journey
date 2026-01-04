@@ -86,10 +86,14 @@ export default function StudentDashboard() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
-            <AIStudyPlan />
+            <div data-tour="ai-study-plan">
+              <AIStudyPlan />
+            </div>
             <LiveClasses />
             <div className="grid md:grid-cols-2 gap-6">
-              <SkillAnalysis />
+              <div data-tour="skill-analysis">
+                <SkillAnalysis />
+              </div>
               <CareerPath />
             </div>
             <GroupProjects />
@@ -97,8 +101,12 @@ export default function StudentDashboard() {
 
           {/* Right Column */}
           <div className="space-y-6">
-            <Gamification />
-            <LearningPath />
+            <div data-tour="gamification">
+              <Gamification />
+            </div>
+            <div data-tour="learning-path">
+              <LearningPath />
+            </div>
             <DailyRecommendations />
             <MicroCredentials />
           </div>
