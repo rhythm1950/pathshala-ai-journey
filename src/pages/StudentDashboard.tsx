@@ -9,13 +9,32 @@ import { LiveClasses } from '@/components/student/LiveClasses';
 import { GroupProjects } from '@/components/student/GroupProjects';
 import { DailyRecommendations } from '@/components/student/DailyRecommendations';
 import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
+import { ProgressChecklist } from '@/components/onboarding/ProgressChecklist';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { Button } from '@/components/ui/button';
 import { HelpCircle } from 'lucide-react';
 
 export default function StudentDashboard() {
   const { language } = useLanguage();
-  const { showTour, completeTour, skipTour, startTour, hasCompleted } = useOnboarding('student');
+  const { 
+    showTour, 
+    completeTour, 
+    skipTour, 
+    startTour, 
+    hasCompleted,
+    getFeatures,
+    getProgress,
+    markFeatureExplored,
+    resetFeatures
+  } = useOnboarding('student');
+
+  const handleFeatureClick = (featureId: string) => {
+    markFeatureExplored(featureId);
+    const element = document.querySelector(`[data-tour="${featureId}"]`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,12 +105,14 @@ export default function StudentDashboard() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
-            <div data-tour="ai-study-plan">
+            <div data-tour="ai-study-plan" onClick={() => markFeatureExplored('ai-study-plan')}>
               <AIStudyPlan />
             </div>
-            <LiveClasses />
+            <div data-tour="live-classes" onClick={() => markFeatureExplored('live-classes')}>
+              <LiveClasses />
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div data-tour="skill-analysis">
+              <div data-tour="skill-analysis" onClick={() => markFeatureExplored('skill-analysis')}>
                 <SkillAnalysis />
               </div>
               <CareerPath />
@@ -101,14 +122,24 @@ export default function StudentDashboard() {
 
           {/* Right Column */}
           <div className="space-y-6">
-            <div data-tour="gamification">
+            {hasCompleted && (
+              <ProgressChecklist
+                features={getFeatures()}
+                progress={getProgress()}
+                onFeatureClick={handleFeatureClick}
+                onReset={resetFeatures}
+              />
+            )}
+            <div data-tour="gamification" onClick={() => markFeatureExplored('gamification')}>
               <Gamification />
             </div>
-            <div data-tour="learning-path">
+            <div data-tour="learning-path" onClick={() => markFeatureExplored('learning-path')}>
               <LearningPath />
             </div>
             <DailyRecommendations />
-            <MicroCredentials />
+            <div data-tour="micro-credentials" onClick={() => markFeatureExplored('micro-credentials')}>
+              <MicroCredentials />
+            </div>
           </div>
         </div>
       </div>

@@ -9,12 +9,31 @@ import { ClassScheduler } from "@/components/teacher/ClassScheduler";
 import { StudentAnalytics } from "@/components/teacher/StudentAnalytics";
 import { ResourceLibrary } from "@/components/teacher/ResourceLibrary";
 import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
+import { ProgressChecklist } from '@/components/onboarding/ProgressChecklist';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { Button } from '@/components/ui/button';
 
 export default function TeacherDashboard() {
   const { language } = useLanguage();
-  const { showTour, completeTour, skipTour, startTour, hasCompleted } = useOnboarding('teacher');
+  const { 
+    showTour, 
+    completeTour, 
+    skipTour, 
+    startTour, 
+    hasCompleted,
+    getFeatures,
+    getProgress,
+    markFeatureExplored,
+    resetFeatures
+  } = useOnboarding('teacher');
+
+  const handleFeatureClick = (featureId: string) => {
+    markFeatureExplored(featureId);
+    const element = document.querySelector(`[data-tour="${featureId}"]`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   const stats = [
     {
@@ -94,24 +113,38 @@ export default function TeacherDashboard() {
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-8 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
+          {/* Progress Checklist */}
+          {hasCompleted && (
+            <ProgressChecklist
+              features={getFeatures()}
+              progress={getProgress()}
+              onFeatureClick={handleFeatureClick}
+              onReset={resetFeatures}
+              className="mb-6"
+            />
+          )}
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div data-tour="performance-heatmap">
+            <div data-tour="performance-heatmap" onClick={() => markFeatureExplored('performance-heatmap')}>
               <PerformanceHeatmap />
             </div>
-            <div data-tour="ai-content">
+            <div data-tour="ai-content" onClick={() => markFeatureExplored('ai-content')}>
               <AIContentGenerator />
             </div>
-            <div data-tour="assignment-grader">
+            <div data-tour="assignment-grader" onClick={() => markFeatureExplored('assignment-grader')}>
               <AssignmentGrader />
             </div>
-            <div data-tour="class-scheduler">
+            <div data-tour="class-scheduler" onClick={() => markFeatureExplored('class-scheduler')}>
               <ClassScheduler />
             </div>
-            <StudentAnalytics />
-            <ResourceLibrary />
+            <div data-tour="student-analytics" onClick={() => markFeatureExplored('student-analytics')}>
+              <StudentAnalytics />
+            </div>
+            <div data-tour="resource-library" onClick={() => markFeatureExplored('resource-library')}>
+              <ResourceLibrary />
+            </div>
           </div>
         </div>
       </section>

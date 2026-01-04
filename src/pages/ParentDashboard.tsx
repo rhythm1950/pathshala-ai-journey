@@ -17,11 +17,31 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
+import { ProgressChecklist } from '@/components/onboarding/ProgressChecklist';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { Button } from '@/components/ui/button';
 
 export default function ParentDashboard() {
-  const { showTour, completeTour, skipTour, startTour, hasCompleted } = useOnboarding('parent');
+  const { 
+    showTour, 
+    completeTour, 
+    skipTour, 
+    startTour, 
+    hasCompleted,
+    getFeatures,
+    getProgress,
+    markFeatureExplored,
+    resetFeatures
+  } = useOnboarding('parent');
+
+  const handleFeatureClick = (featureId: string) => {
+    markFeatureExplored(featureId);
+    const element = document.querySelector(`[data-tour="${featureId}"]`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   const quickStats = [
     { label: 'সার্বিক গড়', value: '82%', icon: TrendingUp, color: 'text-primary' },
     { label: 'উপস্থিতি হার', value: '95%', icon: Calendar, color: 'text-green-500' },
@@ -76,24 +96,24 @@ export default function ParentDashboard() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="progress" className="space-y-6">
-          <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full" data-tour="child-progress">
+          <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full" data-tour="child-progress" onClick={() => markFeatureExplored('child-progress')}>
             <TabsTrigger value="progress" className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
               <span className="hidden sm:inline">অগ্রগতি</span>
             </TabsTrigger>
-            <TabsTrigger value="grades" className="flex items-center gap-2">
+            <TabsTrigger value="grades" className="flex items-center gap-2" onClick={() => markFeatureExplored('grade-tracker')}>
               <BookOpen className="w-4 h-4" />
               <span className="hidden sm:inline">গ্রেড</span>
             </TabsTrigger>
-            <TabsTrigger value="attendance" className="flex items-center gap-2" data-tour="attendance-tab">
+            <TabsTrigger value="attendance" className="flex items-center gap-2" data-tour="attendance-tab" onClick={() => markFeatureExplored('attendance')}>
               <Calendar className="w-4 h-4" />
               <span className="hidden sm:inline">উপস্থিতি</span>
             </TabsTrigger>
-            <TabsTrigger value="communication" className="flex items-center gap-2" data-tour="communication-tab">
+            <TabsTrigger value="communication" className="flex items-center gap-2" data-tour="communication-tab" onClick={() => markFeatureExplored('teacher-communication')}>
               <MessageSquare className="w-4 h-4" />
               <span className="hidden sm:inline">যোগাযোগ</span>
             </TabsTrigger>
-            <TabsTrigger value="events" className="flex items-center gap-2">
+            <TabsTrigger value="events" className="flex items-center gap-2" data-tour="events-tab" onClick={() => markFeatureExplored('events')}>
               <Clock className="w-4 h-4" />
               <span className="hidden sm:inline">ইভেন্ট</span>
             </TabsTrigger>
@@ -123,9 +143,18 @@ export default function ParentDashboard() {
               </TabsContent>
             </div>
 
-            {/* Sidebar - Notifications */}
+            {/* Sidebar - Notifications and Checklist */}
             <div className="space-y-6">
-              <Card data-tour="notifications">
+              {hasCompleted && (
+                <ProgressChecklist
+                  features={getFeatures()}
+                  progress={getProgress()}
+                  onFeatureClick={handleFeatureClick}
+                  onReset={resetFeatures}
+                />
+              )}
+              
+              <Card data-tour="notifications" onClick={() => markFeatureExplored('notifications')}>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Bell className="w-5 h-5" />
