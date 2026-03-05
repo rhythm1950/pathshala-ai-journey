@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Youtube, 
-  Instagram,
-  Mail,
-  Phone,
-  MapPin,
-  Send
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Facebook, Twitter, Linkedin, Youtube, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const { language, t } = useLanguage();
-  const [email, setEmail] = React.useState('');
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter signup
-    setEmail('');
-  };
 
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
@@ -61,176 +42,76 @@ export function Footer() {
     { to: '/partners', label: language === 'bn' ? 'পার্টনার' : 'Partners' },
   ];
 
+  const FooterLinkSection = ({ title, links }: { title: string; links: { to: string; label: string }[] }) => (
+    <div>
+      <h4 className="text-sm font-bold mb-4 uppercase tracking-wider text-secondary-foreground/80">{title}</h4>
+      <ul className="space-y-2.5">
+        {links.map((link, index) => (
+          <li key={index}>
+            <Link to={link.to} className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors flex items-center gap-1 group">
+              {link.label}
+              <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <footer className="bg-secondary text-secondary-foreground mt-auto">
-      {/* Newsletter Section */}
-      <div className="border-b border-border/20">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold mb-2">
-                {language === 'bn' ? 'আমাদের নিউজলেটারে সাবস্ক্রাইব করুন' : 'Subscribe to our Newsletter'}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {language === 'bn' 
-                  ? 'নতুন কোর্স, অফার এবং শিক্ষামূলক বিষয়বস্তু সম্পর্কে আপডেট পান'
-                  : 'Get updates on new courses, offers, and educational content'
-                }
-              </p>
-            </div>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2 w-full md:w-auto">
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'Your email'}
-                className="w-full md:w-64 bg-secondary-foreground/10 border-border/30 rounded-[3px]"
-              />
-              <Button type="submit" className="gradient-primary rounded-[3px]">
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div className="container mx-auto px-4 max-w-6xl py-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-[3px] gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">প</span>
+          <div className="col-span-2 space-y-5">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center">
+                <span className="text-white font-bold text-lg">প</span>
               </div>
-              <span className="font-bold text-xl text-secondary-foreground">
+              <span className="font-bold text-lg text-secondary-foreground">
                 পাঠশালা <span className="gradient-text">AI</span>
               </span>
             </div>
-            <p className="text-sm text-muted-foreground max-w-xs">
+            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               {t('footer.description')}
             </p>
             
-            {/* Contact Info */}
             <div className="space-y-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>support@pathshala.ai</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>+880 1234-567890</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>{language === 'bn' ? 'ঢাকা, বাংলাদেশ' : 'Dhaka, Bangladesh'}</span>
-              </div>
+              <div className="flex items-center gap-2"><Mail className="h-3.5 w-3.5" /><span>support@pathshala.ai</span></div>
+              <div className="flex items-center gap-2"><Phone className="h-3.5 w-3.5" /><span>+880 1234-567890</span></div>
+              <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /><span>{language === 'bn' ? 'ঢাকা, বাংলাদেশ' : 'Dhaka, Bangladesh'}</span></div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-9 h-9 rounded-[3px] bg-secondary-foreground/10 flex items-center justify-center hover:gradient-primary transition-all duration-300 group"
+                <a key={index} href={social.href} aria-label={social.label}
+                  className="w-8 h-8 rounded-lg bg-secondary-foreground/8 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 group"
                 >
-                  <social.icon className="h-4 w-4 text-muted-foreground group-hover:text-white" />
+                  <social.icon className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">{t('footer.quickLinks')}</h4>
-            <ul className="space-y-2 text-sm">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    to={link.to} 
-                    className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-semibold mb-4">{t('footer.resources')}</h4>
-            <ul className="space-y-2 text-sm">
-              {resourceLinks.map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    to={link.to} 
-                    className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold mb-4">
-              {language === 'bn' ? 'কোম্পানি' : 'Company'}
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {companyLinks.map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    to={link.to} 
-                    className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold mb-4">{t('footer.support')}</h4>
-            <ul className="space-y-2 text-sm">
-              {legalLinks.map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    to={link.to} 
-                    className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinkSection title={t('footer.quickLinks')} links={quickLinks} />
+          <FooterLinkSection title={t('footer.resources')} links={resourceLinks} />
+          <FooterLinkSection title={language === 'bn' ? 'কোম্পানি' : 'Company'} links={companyLinks} />
+          <FooterLinkSection title={t('footer.support')} links={legalLinks} />
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border/20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+      <div className="border-t border-border/15">
+        <div className="container mx-auto px-4 max-w-6xl py-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} পাঠশালা AI. {t('footer.rights')}</p>
             <div className="flex items-center gap-4">
-              <Link to="/privacy" className="hover:text-secondary-foreground transition-colors">
-                {language === 'bn' ? 'গোপনীয়তা' : 'Privacy'}
-              </Link>
-              <span>•</span>
-              <Link to="/terms" className="hover:text-secondary-foreground transition-colors">
-                {language === 'bn' ? 'শর্তাবলী' : 'Terms'}
-              </Link>
-              <span>•</span>
-              <Link to="/cookies" className="hover:text-secondary-foreground transition-colors">
-                {language === 'bn' ? 'কুকি' : 'Cookies'}
-              </Link>
+              <Link to="/privacy" className="hover:text-secondary-foreground transition-colors">{language === 'bn' ? 'গোপনীয়তা' : 'Privacy'}</Link>
+              <span className="text-border">•</span>
+              <Link to="/terms" className="hover:text-secondary-foreground transition-colors">{language === 'bn' ? 'শর্তাবলী' : 'Terms'}</Link>
+              <span className="text-border">•</span>
+              <Link to="/cookies" className="hover:text-secondary-foreground transition-colors">{language === 'bn' ? 'কুকি' : 'Cookies'}</Link>
             </div>
           </div>
         </div>
