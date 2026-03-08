@@ -105,6 +105,17 @@ export function Footer() {
         <div className="container mx-auto px-4 max-w-6xl py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} পাঠশালা AI. {t('footer.rights')}</p>
+            <p>
+              Developed By{' '}
+              <a
+                href="https://www.shahriar-rhythm.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Shahriar Rhythm
+              </a>
+            </p>
             <div className="flex items-center gap-4">
               <Link to="/privacy" className="hover:text-secondary-foreground transition-colors">{language === 'bn' ? 'গোপনীয়তা' : 'Privacy'}</Link>
               <span className="text-border">•</span>
