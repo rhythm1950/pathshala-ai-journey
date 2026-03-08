@@ -552,7 +552,7 @@ export default function Landing() {
                     placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'your@email.com'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-xl text-sm"
+                    className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-sm text-sm"
                     required
                   />
                   <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-xl font-bold text-sm shadow-md">
