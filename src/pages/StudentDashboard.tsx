@@ -12,15 +12,21 @@ import { OnboardingTour } from '@/components/onboarding/OnboardingTour';
 import { ProgressChecklist } from '@/components/onboarding/ProgressChecklist';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { Button } from '@/components/ui/button';
-import { HelpCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { HelpCircle, Flame, Target, Trophy, BookOpen, Clock, TrendingUp, Calendar, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import rahulAvatar from '@/assets/avatars/rahul.jpg';
 
 export default function StudentDashboard() {
   const { language } = useLanguage();
-  const { 
-    showTour, 
-    completeTour, 
-    skipTour, 
-    startTour, 
+  const {
+    showTour,
+    completeTour,
+    skipTour,
+    startTour,
     hasCompleted,
     getFeatures,
     getProgress,
@@ -36,75 +42,134 @@ export default function StudentDashboard() {
     }
   };
 
+  const quickStats = [
+    { icon: Flame, value: '12', label: language === 'bn' ? 'দিনের স্ট্রিক' : 'Day Streak', color: 'text-orange-500', bg: 'bg-orange-500/10' },
+    { icon: Target, value: '85%', label: language === 'bn' ? 'সম্পূর্ণতা' : 'Completion', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+    { icon: Trophy, value: 'Level 7', label: language === 'bn' ? 'বর্তমান লেভেল' : 'Current Level', color: 'text-amber-500', bg: 'bg-amber-500/10' },
+    { icon: BookOpen, value: '3', label: language === 'bn' ? 'ব্যাজ অর্জন' : 'Badges Earned', color: 'text-primary', bg: 'bg-primary/10' },
+  ];
+
+  const upcomingTasks = [
+    { title: language === 'bn' ? 'গণিত অ্যাসাইনমেন্ট' : 'Math Assignment', due: language === 'bn' ? 'আজ রাত ১১:৫৯' : 'Today 11:59 PM', progress: 60 },
+    { title: language === 'bn' ? 'পদার্থবিদ্যা কুইজ' : 'Physics Quiz', due: language === 'bn' ? 'আগামীকাল' : 'Tomorrow', progress: 0 },
+    { title: language === 'bn' ? 'ইংরেজি প্রবন্ধ' : 'English Essay', due: language === 'bn' ? '৩ দিন বাকি' : '3 days left', progress: 30 },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Onboarding Tour */}
       {showTour && (
         <OnboardingTour role="student" onComplete={completeTour} onSkip={skipTour} />
       )}
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-background border-b border-border/50">
-        <div className="container mx-auto px-4 py-8 max-w-6xl">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-2xl font-bold">
-                R
+      {/* Premium Hero Section */}
+      <section className="relative bg-secondary overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <Avatar className="h-14 w-14 ring-2 ring-primary/20">
+                  <AvatarImage src={rahulAvatar} alt="Rahim" />
+                  <AvatarFallback className="bg-primary/10 text-primary font-bold text-lg">R</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h1 className="text-xl md:text-2xl font-bold text-secondary-foreground">
+                    {language === 'bn' ? 'স্বাগতম, রহিম!' : 'Welcome back, Rahim!'}
+                  </h1>
+                  <p className="text-secondary-foreground/50 text-sm">
+                    {language === 'bn' ? 'আজ শেখার জন্য দুর্দান্ত একটি দিন!' : "It's a great day to learn something new!"}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-foreground">
-                  {language === 'bn' ? 'স্বাগতম, রহিম! 👋' : 'Welcome back, Rahim! 👋'}
-                </h1>
-                <p className="text-muted-foreground">
-                  {language === 'bn' 
-                    ? 'আজ শেখার জন্য দুর্দান্ত একটি দিন!' 
-                    : "It's a great day to learn something new!"}
-                </p>
+              <div className="flex items-center gap-2">
+                {hasCompleted && (
+                  <Button variant="outline" size="sm" onClick={startTour} className="text-secondary-foreground border-secondary-foreground/20 hover:bg-secondary-foreground/10">
+                    <HelpCircle className="w-4 h-4 mr-1.5" />
+                    {language === 'bn' ? 'টিউটোরিয়াল' : 'Tutorial'}
+                  </Button>
+                )}
+                <Link to="/courses">
+                  <Button size="sm" className="gap-1.5">
+                    {language === 'bn' ? 'কোর্স ব্রাউজ' : 'Browse Courses'}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Button>
+                </Link>
               </div>
             </div>
-            {hasCompleted && (
-              <Button variant="outline" size="sm" onClick={startTour} className="hidden md:flex">
-                <HelpCircle className="w-4 h-4 mr-2" />
-                {language === 'bn' ? 'টিউটোরিয়াল' : 'Tutorial'}
-              </Button>
-            )}
-          </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <p className="text-2xl font-bold text-foreground">12</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'bn' ? 'দিনের স্ট্রিক 🔥' : 'Day Streak 🔥'}
-              </p>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+              {quickStats.map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.08 }}
+                >
+                  <div className="bg-secondary-foreground/5 border border-secondary-foreground/8 rounded-sm p-3.5 flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-sm ${stat.bg} flex items-center justify-center`}>
+                      <stat.icon className={`h-4 w-4 ${stat.color}`} />
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-secondary-foreground leading-none">{stat.value}</p>
+                      <p className="text-[11px] text-secondary-foreground/50 mt-0.5">{stat.label}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <p className="text-2xl font-bold text-foreground">85%</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'bn' ? 'সম্পূর্ণতা' : 'Completion'}
-              </p>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <p className="text-2xl font-bold text-foreground">Level 7</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'bn' ? 'বর্তমান লেভেল' : 'Current Level'}
-              </p>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-4 border border-border/50">
-              <p className="text-2xl font-bold text-foreground">3</p>
-              <p className="text-sm text-muted-foreground">
-                {language === 'bn' ? 'ব্যাজ অর্জন' : 'Badges Earned'}
-              </p>
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Dashboard Content */}
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Left Column */}
+          {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Upcoming Tasks */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Card className="border-border">
+                <CardContent className="p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="font-bold text-sm flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      {language === 'bn' ? 'আসন্ন কাজ' : 'Upcoming Tasks'}
+                    </h2>
+                    <span className="text-xs text-muted-foreground">{language === 'bn' ? '৩টি বাকি' : '3 pending'}</span>
+                  </div>
+                  <div className="space-y-3">
+                    {upcomingTasks.map((task, i) => (
+                      <div key={i} className="flex items-center justify-between p-3 bg-muted/30 rounded-sm border border-border/50">
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate">{task.title}</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Clock className="h-3 w-3 text-muted-foreground" />
+                            <span className="text-xs text-muted-foreground">{task.due}</span>
+                          </div>
+                        </div>
+                        <div className="w-20 ml-3">
+                          <Progress value={task.progress} className="h-1.5" />
+                          <p className="text-[10px] text-muted-foreground text-right mt-0.5">{task.progress}%</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
             <div data-tour="ai-study-plan" onClick={() => markFeatureExplored('ai-study-plan')}>
               <AIStudyPlan />
             </div>
@@ -120,8 +185,40 @@ export default function StudentDashboard() {
             <GroupProjects />
           </div>
 
-          {/* Right Column */}
+          {/* Right Column - Sidebar */}
           <div className="space-y-6">
+            {/* Weekly Progress */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              <Card className="border-border">
+                <CardContent className="p-5">
+                  <h2 className="font-bold text-sm flex items-center gap-2 mb-4">
+                    <TrendingUp className="h-4 w-4 text-primary" />
+                    {language === 'bn' ? 'সাপ্তাহিক অগ্রগতি' : 'Weekly Progress'}
+                  </h2>
+                  <div className="space-y-3">
+                    {[
+                      { label: language === 'bn' ? 'গণিত' : 'Mathematics', value: 85 },
+                      { label: language === 'bn' ? 'পদার্থবিদ্যা' : 'Physics', value: 72 },
+                      { label: language === 'bn' ? 'ইংরেজি' : 'English', value: 93 },
+                      { label: language === 'bn' ? 'রসায়ন' : 'Chemistry', value: 68 },
+                    ].map((subject, i) => (
+                      <div key={i}>
+                        <div className="flex items-center justify-between text-xs mb-1">
+                          <span className="text-muted-foreground">{subject.label}</span>
+                          <span className="font-semibold">{subject.value}%</span>
+                        </div>
+                        <Progress value={subject.value} className="h-1.5" />
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
             {hasCompleted && (
               <ProgressChecklist
                 features={getFeatures()}

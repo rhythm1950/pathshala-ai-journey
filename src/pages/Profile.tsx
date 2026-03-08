@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, Mail, Phone, MapPin, Calendar, Award, BookOpen, Edit2, Save, X, Download, FileText } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { exportCertificatePDF, exportProgressReportPDF } from '@/lib/pdfExport';
+import rahulAvatar from '@/assets/avatars/rahul.jpg';
 
 export default function Profile() {
   const { t } = useLanguage();

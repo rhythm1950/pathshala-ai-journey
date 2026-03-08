@@ -96,16 +96,19 @@ export function Header() {
           <div className="flex items-center gap-1.5">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-lg">
-                  <Globe className="h-4 w-4" />
+                <Button variant="ghost" size="sm" className="h-9 rounded-lg gap-2 px-3">
+                  <span className="text-base leading-none">{language === 'bn' ? '🇧🇩' : '🇬🇧'}</span>
+                  <span className="text-xs font-medium hidden sm:inline">{language === 'bn' ? 'বাংলা' : 'English'}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="rounded-sm">
-                <DropdownMenuItem onClick={() => setLanguage('bn')} className={`rounded-lg ${language === 'bn' ? 'bg-muted' : ''}`}>
-                  বাংলা
+              <DropdownMenuContent align="end" className="rounded-sm w-40">
+                <DropdownMenuItem onClick={() => setLanguage('bn')} className={`rounded-lg gap-2.5 ${language === 'bn' ? 'bg-muted' : ''}`}>
+                  <span className="text-base">🇧🇩</span>
+                  <span className="text-sm">বাংলা</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')} className={`rounded-lg ${language === 'en' ? 'bg-muted' : ''}`}>
-                  English
+                <DropdownMenuItem onClick={() => setLanguage('en')} className={`rounded-lg gap-2.5 ${language === 'en' ? 'bg-muted' : ''}`}>
+                  <span className="text-base">🇬🇧</span>
+                  <span className="text-sm">English</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
