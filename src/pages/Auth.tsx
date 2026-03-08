@@ -112,10 +112,11 @@ const Auth = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    const { error } = await signInWithGoogle();
-    if (error) {
-      toast.error(error.message || text.error);
-    }
+    toast.info(
+      language === 'bn'
+        ? 'অনুগ্রহ করে আপনার ইমেইল এবং পাসওয়ার্ড দিয়ে সাইন ইন করুন। আমরা সরাসরি Google অ্যাকাউন্টের মাধ্যমে সাইন ইন সিস্টেমে কাজ করছি।'
+        : 'Please sign in using your email and password. We are working on the Sign in system directly through Google accounts.'
+    );
   };
 
   if (loading) {
