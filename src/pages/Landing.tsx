@@ -556,15 +556,15 @@ export default function Landing() {
       </section>
 
       {/* ═══════════ NEWSLETTER / CTA ═══════════ */}
-      <section className="py-28">
+      <section className="py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden bg-primary rounded-sm shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
+            <div className="relative overflow-hidden bg-foreground rounded-sm shadow-2xl">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-12 md:p-16 text-center">
-                <div className="w-14 h-14 rounded-sm bg-white/15 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                  <Mail className="h-7 w-7 text-primary-foreground" />
+                <div className="w-14 h-14 rounded-sm bg-white/10 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                  <Mail className="h-7 w-7 text-background" />
                 </div>
                 <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground mb-3 leading-tight">
                   {language === 'bn' ? 'আজই আপনার শেখার যাত্রা শুরু করুন' : 'Start Your Learning Journey Today'}
