@@ -34,6 +34,7 @@ export function Header() {
     const baseLinks = [
       { path: '/', label: t('nav.home') },
       { path: '/courses', label: language === 'bn' ? 'কোর্স' : 'Courses' },
+      { path: '/textbooks', label: language === 'bn' ? 'পাঠ্যপুস্তক' : 'Textbooks' },
     ];
     if (!user) {
       return [...baseLinks, { path: '/student', label: t('nav.student') }, { path: '/teacher', label: t('nav.teacher') }, { path: '/parent', label: t('nav.parent') }];
