@@ -133,12 +133,12 @@ export default function Landing() {
         <div className="absolute top-32 right-[12%] w-48 h-48 border border-primary/5 rounded-full" />
         <div className="absolute bottom-20 left-[5%] w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="container mx-auto px-4 relative z-10 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
               <motion.div variants={fadeUp} custom={0}
-                className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-sm font-medium mb-8"
+                className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-sm font-medium mb-8"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 {t('hero.badge')}
@@ -160,11 +160,11 @@ export default function Landing() {
 
               <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-3">
                 <Link to="/auth">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8 py-6 rounded-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
                     {t('hero.cta.student')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-xl border-2 border-border hover:bg-muted" onClick={() => setDemoOpen(true)}>
+                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-sm border-2 border-border hover:bg-muted" onClick={() => setDemoOpen(true)}>
                   <Play className="h-4 w-4" /> {t('hero.cta.demo')}
                 </Button>
               </motion.div>
@@ -186,17 +186,17 @@ export default function Landing() {
               className="relative hidden lg:block"
             >
               <div className="relative">
-                <div className="absolute -inset-1 bg-primary/10 rounded-2xl blur-2xl" />
+                <div className="absolute -inset-1 bg-primary/10 rounded-sm blur-2xl" />
                 <img
                   src={heroMockup}
                   alt="Pathshala AI Platform"
-                  className="relative rounded-2xl shadow-2xl border border-border/50 w-full"
+                  className="relative rounded-sm shadow-2xl border border-border/50 w-full"
                 />
                 {/* Floating stat cards */}
                 <motion.div
                   animate={{ y: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-border/50"
+                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-sm p-4 shadow-xl border border-border/50"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -212,7 +212,7 @@ export default function Landing() {
                 <motion.div
                   animate={{ y: [6, -6, 6] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-6 bottom-1/4 bg-card/95 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-border/50"
+                  className="absolute -right-6 bottom-1/4 bg-card/95 backdrop-blur-xl rounded-sm p-4 shadow-xl border border-border/50"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -232,7 +232,7 @@ export default function Landing() {
 
       {/* ═══════════ PARTNER MARQUEE ═══════════ */}
       <section className="py-8 border-y border-border/40 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex items-center justify-center gap-10 lg:gap-16 flex-wrap opacity-40">
             {partners.map((partner, i) => (
               <div key={i} className="flex items-center gap-2 text-muted-foreground whitespace-nowrap">
@@ -254,8 +254,8 @@ export default function Landing() {
           >
             {stats.map((stat, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group cursor-default bg-card border border-border/50 rounded-2xl p-8 text-center hover:border-primary/30 hover:shadow-lg transition-all duration-500">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                <div className="relative group cursor-default bg-card border border-border/50 rounded-sm p-8 text-center hover:border-primary/30 hover:shadow-lg transition-all duration-500">
+                  <div className="w-14 h-14 rounded-sm bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
                     <stat.icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="text-3xl lg:text-4xl font-bold text-foreground mb-1 tracking-tight">{stat.value}</div>
@@ -270,9 +270,9 @@ export default function Landing() {
       {/* ═══════════ HOW IT WORKS ═══════════ */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-muted/30" />
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> {language === 'bn' ? 'কিভাবে কাজ করে' : 'How it works'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">
@@ -288,11 +288,11 @@ export default function Landing() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {howItWorks.map((item, index) => (
                 <motion.div key={index} variants={fadeUp} custom={index} className="relative group">
-                  <div className="relative bg-card border border-border/50 rounded-2xl p-8 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                  <div className="relative bg-card border border-border/50 rounded-sm p-8 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
                     <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-md mx-auto mb-6 relative z-10">
                       {item.step}
                     </div>
-                    <div className="w-16 h-16 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-500">
+                    <div className="w-16 h-16 rounded-sm bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-500">
                       <item.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-base font-bold mb-2">{item.title}</h3>
@@ -307,9 +307,9 @@ export default function Landing() {
 
       {/* ═══════════ FEATURES ═══════════ */}
       <section className="py-28 relative">
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Layers className="h-3.5 w-3.5" /> {language === 'bn' ? 'ফিচার সমূহ' : 'Features'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('features.title')}</motion.h2>
@@ -319,8 +319,8 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {features.map((feature, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group h-full bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500">
-                  <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
+                <div className="relative group h-full bg-card border border-border/50 rounded-sm p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                  <div className="w-14 h-14 rounded-sm bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
                     <feature.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
@@ -338,11 +338,11 @@ export default function Landing() {
       {/* ═══════════ AI COMPANION ═══════════ */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-muted/30" />
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div variants={fadeUp} custom={0}>
-                <div className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
                   <Sparkles className="h-3.5 w-3.5" /> {language === 'bn' ? 'AI চালিত' : 'AI-Powered'}
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -368,15 +368,15 @@ export default function Landing() {
                     </div>
                   ))}
                 </div>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground mt-8 gap-2 rounded-xl shadow-md" size="lg" onClick={() => setDemoOpen(true)}>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground mt-8 gap-2 rounded-sm shadow-md" size="lg" onClick={() => setDemoOpen(true)}>
                   {language === 'bn' ? 'ডেমো দেখুন' : 'Watch Demo'} <Play className="h-4 w-4" />
                 </Button>
               </motion.div>
 
               <motion.div variants={scaleUp} custom={1}>
                 <div className="relative">
-                  <div className="absolute -inset-2 bg-primary/5 rounded-2xl blur-xl" />
-                  <div className="relative bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="absolute -inset-2 bg-primary/5 rounded-sm blur-xl" />
+                  <div className="relative bg-card border border-border/50 rounded-sm overflow-hidden shadow-2xl">
                     <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border/30 bg-muted/30">
                       <div className="flex gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-primary/40" />
@@ -399,7 +399,7 @@ export default function Landing() {
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         {[85, 72, 93, 68].map((val, i) => (
-                          <div key={i} className="bg-muted/50 rounded-xl p-4">
+                          <div key={i} className="bg-muted/50 rounded-sm p-4">
                             <div className="h-2.5 w-16 bg-muted-foreground/10 rounded mb-3" />
                             <div className="w-full bg-muted rounded-full h-2">
                               <motion.div
@@ -416,7 +416,7 @@ export default function Landing() {
                           </div>
                         ))}
                       </div>
-                      <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                      <div className="bg-primary/5 rounded-sm p-4 border border-primary/10">
                         <div className="flex items-center gap-2 mb-2">
                           <Brain className="h-4 w-4 text-primary" />
                           <span className="text-xs font-bold text-primary">{language === 'bn' ? 'AI সুপারিশ' : 'AI Recommendation'}</span>
@@ -437,7 +437,7 @@ export default function Landing() {
       <section className="py-28 relative">
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> {language === 'bn' ? 'প্রাইসিং' : 'Pricing'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">
@@ -451,7 +451,7 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-3 gap-6 items-stretch" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {pricingPlans.map((plan, index) => (
               <motion.div key={index} variants={fadeUp} custom={index}>
-                <Card className={`relative overflow-hidden rounded-2xl transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl ring-1 ring-primary/20 scale-[1.02]' : 'border border-border/50 hover:border-primary/20 hover:shadow-lg'}`}>
+                <Card className={`relative overflow-hidden rounded-sm transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl ring-1 ring-primary/20 scale-[1.02]' : 'border border-border/50 hover:border-primary/20 hover:shadow-lg'}`}>
                   {plan.popular && (
                     <div className="bg-primary py-2.5 text-center">
                       <span className="text-primary-foreground text-xs font-bold tracking-widest uppercase">
@@ -475,7 +475,7 @@ export default function Landing() {
                       ))}
                     </ul>
                     <Link to="/auth" className="block">
-                      <Button className={`w-full py-5 rounded-xl text-sm font-bold ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
+                      <Button className={`w-full py-5 rounded-sm text-sm font-bold ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
                         {plan.cta}
                       </Button>
                     </Link>
@@ -490,9 +490,9 @@ export default function Landing() {
       {/* ═══════════ TESTIMONIALS ═══════════ */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-muted/30" />
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Star className="h-3.5 w-3.5 fill-primary" /> {language === 'bn' ? 'শিক্ষার্থীদের মতামত' : 'Student Reviews'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('testimonials.title')}</motion.h2>
@@ -502,7 +502,7 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {testimonials.map((testimonial, index) => (
               <motion.div key={testimonial.id} variants={fadeUp} custom={index}>
-                <Card className="border border-border/50 rounded-2xl p-8 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
+                <Card className="border border-border/50 rounded-sm p-8 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
                   <CardContent className="p-0 flex flex-col h-full">
                     <div className="flex gap-0.5 mb-5">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -531,11 +531,11 @@ export default function Landing() {
       <section className="py-28">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden bg-secondary rounded-3xl shadow-2xl">
+            <div className="relative overflow-hidden bg-secondary rounded-sm shadow-2xl">
               <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-60 h-60 bg-primary/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-12 md:p-16 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 rounded-sm bg-primary/15 flex items-center justify-center mx-auto mb-6">
                   <Mail className="h-7 w-7 text-primary" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-3">
@@ -552,10 +552,10 @@ export default function Landing() {
                     placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'your@email.com'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-xl text-sm"
+                    className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-sm text-sm"
                     required
                   />
-                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-xl font-bold text-sm shadow-md">
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-sm font-bold text-sm shadow-md">
                     {language === 'bn' ? 'সাবস্ক্রাইব' : 'Subscribe'}
                   </Button>
                 </form>
@@ -569,7 +569,7 @@ export default function Landing() {
       <section className="py-28 relative">
         <div className="container mx-auto px-4 max-w-3xl relative z-10">
           <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Clock className="h-3.5 w-3.5" /> {language === 'bn' ? 'সচরাচর প্রশ্ন' : 'FAQ'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('faq.title')}</motion.h2>
@@ -579,7 +579,7 @@ export default function Landing() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
             <Accordion type="single" collapsible className="space-y-3">
               {faqData.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-2xl overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-sm overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
                   <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-sm">
                     {language === 'bn' ? faq.question : faq.questionEn}
                   </AccordionTrigger>
@@ -597,17 +597,17 @@ export default function Landing() {
       <section className="py-28">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden bg-primary rounded-3xl shadow-2xl">
+            <div className="relative overflow-hidden bg-primary rounded-sm shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-14 md:p-20 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-sm bg-white/15 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
                   <GraduationCap className="h-8 w-8 text-primary-foreground" />
                 </div>
                 <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5 leading-tight">{t('cta.title')}</h2>
                 <p className="text-primary-foreground/70 mb-10 max-w-lg mx-auto text-lg leading-relaxed">{t('cta.subtitle')}</p>
                 <Link to="/auth">
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 text-base px-10 py-7 rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all">
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 text-base px-10 py-7 rounded-sm font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all">
                     {t('cta.button')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
@@ -622,14 +622,14 @@ export default function Landing() {
 
       {/* Demo Dialog */}
       <Dialog open={demoOpen} onOpenChange={setDemoOpen}>
-        <DialogContent className="max-w-4xl rounded-2xl">
+        <DialogContent className="max-w-4xl rounded-sm">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">{language === 'bn' ? 'প্ল্যাটফর্ম ডেমো' : 'Platform Demo'}</DialogTitle>
             <DialogDescription>
               {language === 'bn' ? 'পাঠশালা AI কিভাবে কাজ করে দেখুন' : 'See how Pathshala AI works'}
             </DialogDescription>
           </DialogHeader>
-          <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
+          <div className="aspect-video bg-muted rounded-sm flex items-center justify-center">
             <div className="text-center">
               <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Play className="h-8 w-8 text-primary-foreground ml-1" />

@@ -60,7 +60,7 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-secondary-foreground mt-auto">
-      <div className="container mx-auto px-4 max-w-7xl py-16">
+      <div className="container mx-auto px-4 max-w-6xl py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="col-span-2 space-y-5">
@@ -102,7 +102,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-border/15">
-        <div className="container mx-auto px-4 max-w-7xl py-5">
+        <div className="container mx-auto px-4 max-w-6xl py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} পাঠশালা AI. {t('footer.rights')}</p>
             <div className="flex items-center gap-4">

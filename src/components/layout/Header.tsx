@@ -62,7 +62,7 @@ export function Header() {
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-sm' : 'bg-background/60 backdrop-blur-md'}`}>
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
@@ -100,7 +100,7 @@ export function Header() {
                   <Globe className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="rounded-xl">
+              <DropdownMenuContent align="end" className="rounded-sm">
                 <DropdownMenuItem onClick={() => setLanguage('bn')} className={`rounded-lg ${language === 'bn' ? 'bg-muted' : ''}`}>
                   বাংলা
                 </DropdownMenuItem>
@@ -136,7 +136,7 @@ export function Header() {
                       </Avatar>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56 rounded-xl p-1.5">
+                  <DropdownMenuContent align="end" className="w-56 rounded-sm p-1.5">
                     <div className="px-3 py-2.5">
                       <p className="text-sm font-semibold truncate">{user.user_metadata?.full_name || user.email}</p>
                       <p className="text-xs text-muted-foreground capitalize">{role || 'User'}</p>
@@ -178,7 +178,7 @@ export function Header() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                className={`block px-4 py-3 rounded-sm text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'bg-primary text-primary-foreground'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted'
@@ -188,7 +188,7 @@ export function Header() {
               </Link>
             ))}
             {!user && (
-              <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-semibold text-primary hover:bg-muted">
+              <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded-sm text-sm font-semibold text-primary hover:bg-muted">
                 Sign In / Sign Up
               </Link>
             )}
