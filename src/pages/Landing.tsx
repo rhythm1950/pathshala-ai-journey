@@ -531,7 +531,7 @@ export default function Landing() {
       <section className="py-28">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden bg-secondary rounded-3xl shadow-2xl">
+            <div className="relative overflow-hidden bg-secondary rounded-sm shadow-2xl">
               <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-60 h-60 bg-primary/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-12 md:p-16 text-center">
