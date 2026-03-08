@@ -97,19 +97,38 @@ export function Header() {
           <div className="flex items-center gap-1.5">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="h-9 rounded-lg gap-2 px-3">
-                  <span className="text-base leading-none">{language === 'bn' ? '🇧🇩' : '🇬🇧'}</span>
+                <Button variant="ghost" size="sm" className="h-9 rounded-lg gap-2 px-3 hover:bg-muted">
+                  <img
+                    src={language === 'bn' ? '/flags/bd.png' : '/flags/gb.png'}
+                    alt={language === 'bn' ? 'BD' : 'GB'}
+                    className="w-5 h-3.5 rounded-[2px] object-cover ring-1 ring-border/50"
+                  />
                   <span className="text-xs font-medium hidden sm:inline">{language === 'bn' ? 'বাংলা' : 'English'}</span>
+                  <svg className="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="rounded-sm w-40">
-                <DropdownMenuItem onClick={() => setLanguage('bn')} className={`rounded-lg gap-2.5 ${language === 'bn' ? 'bg-muted' : ''}`}>
-                  <span className="text-base">🇧🇩</span>
-                  <span className="text-sm">বাংলা</span>
+              <DropdownMenuContent align="end" className="rounded-lg w-44 p-1.5">
+                <DropdownMenuItem
+                  onClick={() => setLanguage('bn')}
+                  className={`rounded-md gap-3 px-3 py-2.5 cursor-pointer ${language === 'bn' ? 'bg-primary/8 text-primary font-semibold' : ''}`}
+                >
+                  <img src="/flags/bd.png" alt="BD" className="w-6 h-4 rounded-[2px] object-cover ring-1 ring-border/50" />
+                  <div className="flex flex-col">
+                    <span className="text-sm">বাংলা</span>
+                    <span className="text-[10px] text-muted-foreground font-normal">Bengali</span>
+                  </div>
+                  {language === 'bn' && <span className="ml-auto text-primary text-xs">✓</span>}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')} className={`rounded-lg gap-2.5 ${language === 'en' ? 'bg-muted' : ''}`}>
-                  <span className="text-base">🇬🇧</span>
-                  <span className="text-sm">English</span>
+                <DropdownMenuItem
+                  onClick={() => setLanguage('en')}
+                  className={`rounded-md gap-3 px-3 py-2.5 cursor-pointer ${language === 'en' ? 'bg-primary/8 text-primary font-semibold' : ''}`}
+                >
+                  <img src="/flags/gb.png" alt="GB" className="w-6 h-4 rounded-[2px] object-cover ring-1 ring-border/50" />
+                  <div className="flex flex-col">
+                    <span className="text-sm">English</span>
+                    <span className="text-[10px] text-muted-foreground font-normal">ইংরেজি</span>
+                  </div>
+                  {language === 'en' && <span className="ml-auto text-primary text-xs">✓</span>}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
