@@ -133,7 +133,7 @@ export default function Landing() {
         <div className="absolute top-32 right-[12%] w-48 h-48 border border-primary/5 rounded-full" />
         <div className="absolute bottom-20 left-[5%] w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="container mx-auto px-4 relative z-10 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
