@@ -1,10 +1,17 @@
 // Demo data for Pathshala AI
+import avatarRahul from '@/assets/avatars/rahul.jpg';
+import avatarAminul from '@/assets/avatars/aminul.jpg';
+import avatarAbdul from '@/assets/avatars/abdul.jpg';
+import avatarSabrina from '@/assets/avatars/sabrina.jpg';
+import avatarTanvir from '@/assets/avatars/tanvir.jpg';
+import avatarNadia from '@/assets/avatars/nadia.jpg';
+import avatarFatema from '@/assets/avatars/fatema.jpg';
 
 export const studentData = {
   name: 'রাহুল আহমেদ',
   nameEn: 'Rahul Ahmed',
   email: 'rahul@example.com',
-  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=rahul',
+  avatar: avatarRahul,
   level: 12,
   xp: 8750,
   xpToNext: 10000,
@@ -119,7 +126,7 @@ export const teacherData = {
   name: 'ড. আমিনুল ইসলাম',
   nameEn: 'Dr. Aminul Islam',
   email: 'aminul@example.com',
-  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=aminul',
+  avatar: avatarAminul,
   department: 'কম্পিউটার সায়েন্স',
   departmentEn: 'Computer Science',
   totalStudents: 256,
@@ -153,7 +160,7 @@ export const parentData = {
   name: 'জনাব আব্দুল করিম',
   nameEn: 'Mr. Abdul Karim',
   email: 'abdul@example.com',
-  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=abdul',
+  avatar: avatarAbdul,
 };
 
 export const childrenData = [
@@ -161,7 +168,7 @@ export const childrenData = [
     id: 1,
     name: 'রাহুল করিম',
     nameEn: 'Rahul Karim',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=rahul',
+    avatar: avatarRahul,
     class: 'ক্লাস ১০',
     classEn: 'Class 10',
     overallGrade: 'A+',
@@ -182,7 +189,7 @@ export const childrenData = [
     id: 2,
     name: 'ফাতেমা করিম',
     nameEn: 'Fatema Karim',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=fatema',
+    avatar: avatarFatema,
     class: 'ক্লাস ৭',
     classEn: 'Class 7',
     overallGrade: 'A',
@@ -214,7 +221,7 @@ export const testimonials = [
     nameEn: 'Sabrina Akter',
     role: 'HSC পরীক্ষার্থী',
     roleEn: 'HSC Student',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sabrina',
+    avatar: avatarSabrina,
     quote: 'পাঠশালা AI আমার পড়াশোনা সম্পূর্ণ বদলে দিয়েছে। AI স্টাডি প্ল্যান আমাকে সময় সঠিকভাবে পরিচালনা করতে শিখিয়েছে।',
     quoteEn: 'Pathshala AI has completely transformed my studies. The AI study plan has taught me to manage my time effectively.',
     rating: 5,
@@ -225,7 +232,7 @@ export const testimonials = [
     nameEn: 'Tanvir Hasan',
     role: 'বিশ্ববিদ্যালয় শিক্ষার্থী',
     roleEn: 'University Student',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=tanvir',
+    avatar: avatarTanvir,
     quote: 'লাইভ ক্লাস এবং গ্রুপ প্রজেক্ট ফিচার অসাধারণ! আমি প্রোগ্রামিং শিখে ফ্রিল্যান্সিং শুরু করেছি।',
     quoteEn: 'The live class and group project features are amazing! I learned programming and started freelancing.',
     rating: 5,
@@ -236,7 +243,7 @@ export const testimonials = [
     nameEn: 'Nadia Islam',
     role: 'অভিভাবক',
     roleEn: 'Parent',
-    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=nadia',
+    avatar: avatarNadia,
     quote: 'প্যারেন্ট পোর্টাল দিয়ে আমি সহজেই আমার সন্তানের পড়াশোনার খোঁজ রাখতে পারি। খুবই সুবিধাজনক!',
     quoteEn: "The parent portal helps me easily track my child's studies. Very convenient!",
     rating: 5,
