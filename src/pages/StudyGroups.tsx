@@ -329,55 +329,57 @@ function GroupCard({
       transition={{ delay: index * 0.05 }}
       layout
     >
-      <Card className="group hover:shadow-lg hover:border-primary/20 transition-all duration-300 h-full">
-        <CardContent className="p-5 flex flex-col h-full">
-          <div className="flex items-start justify-between mb-3">
-            <Badge variant="outline" className={`text-[10px] font-semibold border ${colorClass}`}>
-              {group.subject}
-            </Badge>
-            <span className="text-[10px] text-muted-foreground">
-              {group.member_count}/{group.max_members}
-            </span>
-          </div>
-          <h3 className="font-bold text-sm mb-1 group-hover:text-primary transition-colors">{group.name}</h3>
-          {group.description && (
-            <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{group.description}</p>
-          )}
-          <div className="mt-auto space-y-3">
-            <div>
-              <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
-                <span>{language === 'bn' ? 'সদস্য' : 'Members'}</span>
-                <span>{fillPercent.toFixed(0)}%</span>
-              </div>
-              <Progress value={fillPercent} className="h-1.5" />
+      <Link to={`/study-groups/${group.id}`} className="block h-full">
+        <Card className="group hover:shadow-lg hover:border-primary/20 transition-all duration-300 h-full">
+          <CardContent className="p-5 flex flex-col h-full">
+            <div className="flex items-start justify-between mb-3">
+              <Badge variant="outline" className={`text-[10px] font-semibold border ${colorClass}`}>
+                {group.subject}
+              </Badge>
+              <span className="text-[10px] text-muted-foreground">
+                {group.member_count}/{group.max_members}
+              </span>
             </div>
-            {group.is_member ? (
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full text-xs gap-1.5 text-destructive hover:bg-destructive/10 hover:text-destructive"
-                onClick={onLeave}
-                disabled={isLoading}
-              >
-                <UserMinus className="h-3.5 w-3.5" />
-                {language === 'bn' ? 'গ্রুপ ছাড়ুন' : 'Leave Group'}
-              </Button>
-            ) : (
-              <Button
-                size="sm"
-                className="w-full text-xs gap-1.5"
-                onClick={onJoin}
-                disabled={isFull || isLoading}
-              >
-                <UserPlus className="h-3.5 w-3.5" />
-                {isFull
-                  ? (language === 'bn' ? 'পূর্ণ' : 'Full')
-                  : (language === 'bn' ? 'যোগ দিন' : 'Join Group')}
-              </Button>
+            <h3 className="font-bold text-sm mb-1 group-hover:text-primary transition-colors">{group.name}</h3>
+            {group.description && (
+              <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{group.description}</p>
             )}
-          </div>
-        </CardContent>
-      </Card>
+            <div className="mt-auto space-y-3">
+              <div>
+                <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
+                  <span>{language === 'bn' ? 'সদস্য' : 'Members'}</span>
+                  <span>{fillPercent.toFixed(0)}%</span>
+                </div>
+                <Progress value={fillPercent} className="h-1.5" />
+              </div>
+              {group.is_member ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-xs gap-1.5 text-destructive hover:bg-destructive/10 hover:text-destructive"
+                  onClick={(e) => { e.preventDefault(); onLeave?.(); }}
+                  disabled={isLoading}
+                >
+                  <UserMinus className="h-3.5 w-3.5" />
+                  {language === 'bn' ? 'গ্রুপ ছাড়ুন' : 'Leave Group'}
+                </Button>
+              ) : (
+                <Button
+                  size="sm"
+                  className="w-full text-xs gap-1.5"
+                  onClick={(e) => { e.preventDefault(); onJoin?.(); }}
+                  disabled={isFull || isLoading}
+                >
+                  <UserPlus className="h-3.5 w-3.5" />
+                  {isFull
+                    ? (language === 'bn' ? 'পূর্ণ' : 'Full')
+                    : (language === 'bn' ? 'যোগ দিন' : 'Join Group')}
+                </Button>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
     </motion.div>
   );
 }
