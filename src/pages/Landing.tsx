@@ -160,7 +160,7 @@ export default function Landing() {
 
               <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-3">
                 <Link to="/auth">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8 py-6 rounded-sm shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
                     {t('hero.cta.student')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
