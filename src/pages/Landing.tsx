@@ -527,6 +527,34 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ═══════════ FAQ ═══════════ */}
+      <section className="py-28 relative">
+        <div className="container mx-auto px-4 max-w-3xl relative z-10">
+          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
+              <Clock className="h-3.5 w-3.5" /> {language === 'bn' ? 'সচরাচর প্রশ্ন' : 'FAQ'}
+            </motion.div>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('faq.title')}</motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg">{t('faq.subtitle')}</motion.p>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqData.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-sm overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-sm">
+                    {language === 'bn' ? faq.question : faq.questionEn}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed text-sm">
+                    {language === 'bn' ? faq.answer : faq.answerEn}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ═══════════ NEWSLETTER / CTA ═══════════ */}
       <section className="py-28">
         <div className="container mx-auto px-4 max-w-5xl">
