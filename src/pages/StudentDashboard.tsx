@@ -108,6 +108,12 @@ export default function StudentDashboard() {
                     {language === 'bn' ? 'টিউটোরিয়াল' : 'Tutorial'}
                   </Button>
                 )}
+                <Link to="/study-groups">
+                  <Button variant="outline" size="sm" className="gap-1.5 text-secondary-foreground border-secondary-foreground/20 hover:bg-secondary-foreground/10">
+                    <Users className="h-3.5 w-3.5" />
+                    {language === 'bn' ? 'স্টাডি গ্রুপ' : 'Study Groups'}
+                  </Button>
+                </Link>
                 <Link to="/courses">
                   <Button size="sm" className="gap-1.5">
                     {language === 'bn' ? 'কোর্স ব্রাউজ' : 'Browse Courses'}
