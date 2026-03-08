@@ -103,13 +103,13 @@ export default function StudentDashboard() {
               </div>
               <div className="flex items-center gap-2">
                 {hasCompleted && (
-                  <Button variant="outline" size="sm" onClick={startTour} className="text-secondary-foreground border-secondary-foreground/20 hover:bg-secondary-foreground/10">
+                  <Button variant="outline" size="sm" onClick={startTour} className="bg-background/80 border-border hover:bg-background">
                     <HelpCircle className="w-4 h-4 mr-1.5" />
                     {language === 'bn' ? 'টিউটোরিয়াল' : 'Tutorial'}
                   </Button>
                 )}
                 <Link to="/study-groups">
-                  <Button variant="outline" size="sm" className="gap-1.5 text-secondary-foreground border-secondary-foreground/20 hover:bg-secondary-foreground/10">
+                  <Button variant="outline" size="sm" className="gap-1.5 bg-background/80 border-border hover:bg-background">
                     <Users className="h-3.5 w-3.5" />
                     {language === 'bn' ? 'স্টাডি গ্রুপ' : 'Study Groups'}
                   </Button>
