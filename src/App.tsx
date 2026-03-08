@@ -34,6 +34,7 @@ import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
 import { ScrollToTopOnNav } from "@/components/ScrollToTopOnNav";
 import StudyGroups from "./pages/StudyGroups";
+import StudyGroupDetail from "./pages/StudyGroupDetail";
 import Textbooks from "./pages/Textbooks";
 import TextbookDetail from "./pages/TextbookDetail";
 import NotFound from "./pages/NotFound";
@@ -123,6 +124,14 @@ const App = () => (
                     element={
                       <ProtectedRoute allowedRoles={['student']}>
                         <StudyGroups />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/study-groups/:id"
+                    element={
+                      <ProtectedRoute allowedRoles={['student']}>
+                        <StudyGroupDetail />
                       </ProtectedRoute>
                     }
                   />
