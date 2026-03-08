@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, Mail, Phone, MapPin, Calendar, Award, BookOpen, Edit2, Save, X, Download, FileText } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { exportCertificatePDF, exportProgressReportPDF } from '@/lib/pdfExport';
+import rahulAvatar from '@/assets/avatars/rahul.jpg';
 
 export default function Profile() {
   const { t } = useLanguage();
@@ -77,7 +78,7 @@ export default function Profile() {
           <CardContent className="relative pt-0">
             <div className="flex flex-col md:flex-row items-center md:items-end gap-6 -mt-16">
               <Avatar className="w-32 h-32 border-4 border-background shadow-xl">
-                <AvatarImage src="/placeholder.svg" alt={profile.name} />
+                <AvatarImage src={rahulAvatar} alt={profile.name} />
                 <AvatarFallback className="text-3xl bg-primary text-primary-foreground">
                   {profile.name.charAt(0)}
                 </AvatarFallback>
