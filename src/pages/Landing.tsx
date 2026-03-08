@@ -288,11 +288,11 @@ export default function Landing() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {howItWorks.map((item, index) => (
                 <motion.div key={index} variants={fadeUp} custom={index} className="relative group">
-                  <div className="relative bg-card border border-border/50 rounded-2xl p-8 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                  <div className="relative bg-card border border-border/50 rounded-sm p-8 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
                     <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-md mx-auto mb-6 relative z-10">
                       {item.step}
                     </div>
-                    <div className="w-16 h-16 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-500">
+                    <div className="w-16 h-16 rounded-sm bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-500">
                       <item.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-base font-bold mb-2">{item.title}</h3>
