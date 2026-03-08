@@ -502,7 +502,7 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {testimonials.map((testimonial, index) => (
               <motion.div key={testimonial.id} variants={fadeUp} custom={index}>
-                <Card className="border border-border/50 rounded-2xl p-8 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
+                <Card className="border border-border/50 rounded-sm p-8 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
                   <CardContent className="p-0 flex flex-col h-full">
                     <div className="flex gap-0.5 mb-5">
                       {[...Array(testimonial.rating)].map((_, i) => (
