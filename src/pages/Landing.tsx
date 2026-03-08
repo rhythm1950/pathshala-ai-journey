@@ -338,7 +338,7 @@ export default function Landing() {
       {/* ═══════════ AI COMPANION ═══════════ */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-muted/30" />
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div variants={fadeUp} custom={0}>
