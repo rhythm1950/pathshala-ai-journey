@@ -27,6 +27,7 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Partners from "./pages/Partners";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import Tutorials from "./pages/Tutorials";
 import Community from "./pages/Community";
 import Auth from "./pages/Auth";
@@ -111,6 +112,7 @@ const App = () => (
                   <Route path="/careers" element={<Careers />} />
                   <Route path="/partners" element={<Partners />} />
                   <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:id" element={<BlogDetail />} />
                   <Route path="/tutorials" element={<Tutorials />} />
                   <Route path="/community" element={<Community />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
