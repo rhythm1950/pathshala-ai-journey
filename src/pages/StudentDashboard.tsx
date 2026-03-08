@@ -17,7 +17,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { HelpCircle, Flame, Target, Trophy, BookOpen, Clock, TrendingUp, Calendar, ArrowRight, Zap, PlayCircle, BarChart3, Award } from 'lucide-react';
+import { HelpCircle, Flame, Target, Trophy, BookOpen, Clock, TrendingUp, Calendar, ArrowRight, Zap, PlayCircle, BarChart3, Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import rahulAvatar from '@/assets/avatars/rahul.jpg';
