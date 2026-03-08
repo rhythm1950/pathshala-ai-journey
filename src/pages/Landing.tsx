@@ -319,8 +319,8 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {features.map((feature, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group h-full bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500">
-                  <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
+                <div className="relative group h-full bg-card border border-border/50 rounded-sm p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                  <div className="w-14 h-14 rounded-sm bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
                     <feature.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
