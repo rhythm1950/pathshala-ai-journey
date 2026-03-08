@@ -629,7 +629,7 @@ export default function Landing() {
               {language === 'bn' ? 'পাঠশালা AI কিভাবে কাজ করে দেখুন' : 'See how Pathshala AI works'}
             </DialogDescription>
           </DialogHeader>
-          <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
+          <div className="aspect-video bg-muted rounded-sm flex items-center justify-center">
             <div className="text-center">
               <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Play className="h-8 w-8 text-primary-foreground ml-1" />
