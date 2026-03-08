@@ -566,10 +566,10 @@ export default function Landing() {
                 <div className="w-14 h-14 rounded-sm bg-white/10 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                   <Mail className="h-7 w-7 text-background" />
                 </div>
-                <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground mb-3 leading-tight">
+                <h2 className="text-2xl md:text-4xl font-bold text-background mb-3 leading-tight">
                   {language === 'bn' ? 'আজই আপনার শেখার যাত্রা শুরু করুন' : 'Start Your Learning Journey Today'}
                 </h2>
-                <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+                <p className="text-background/60 mb-8 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
                   {language === 'bn'
                     ? 'নতুন কোর্স, অফার এবং শিক্ষা টিপস সরাসরি আপনার ইনবক্সে পান। বিনামূল্যে সাবস্ক্রাইব করুন।'
                     : 'Get new courses, offers, and learning tips directly to your inbox. Subscribe for free.'}
@@ -580,14 +580,14 @@ export default function Landing() {
                     placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'your@email.com'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/40 h-12 rounded-sm text-sm"
+                    className="bg-white/10 border-white/20 text-background placeholder:text-background/40 h-12 rounded-sm text-sm"
                     required
                   />
-                  <Button type="submit" className="bg-white text-primary hover:bg-white/90 whitespace-nowrap h-12 px-8 rounded-sm font-bold text-sm shadow-md">
+                  <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90 whitespace-nowrap h-12 px-8 rounded-sm font-bold text-sm shadow-md">
                     {language === 'bn' ? 'সাবস্ক্রাইব' : 'Subscribe'}
                   </Button>
                 </form>
-                <div className="flex flex-wrap items-center justify-center gap-6 text-primary-foreground/50 text-xs">
+                <div className="flex flex-wrap items-center justify-center gap-6 text-background/40 text-xs">
                   <span className="flex items-center gap-1.5"><CheckCircle className="h-3.5 w-3.5" />{language === 'bn' ? 'বিনামূল্যে' : 'Free forever'}</span>
                   <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" />{language === 'bn' ? 'স্প্যাম নেই' : 'No spam'}</span>
                   <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" />{language === 'bn' ? 'যেকোনো সময় আনসাবস্ক্রাইব' : 'Unsubscribe anytime'}</span>
