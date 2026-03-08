@@ -196,7 +196,7 @@ export default function Landing() {
                 <motion.div
                   animate={{ y: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-border/50"
+                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-sm p-4 shadow-xl border border-border/50"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
