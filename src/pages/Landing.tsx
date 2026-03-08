@@ -579,7 +579,7 @@ export default function Landing() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
             <Accordion type="single" collapsible className="space-y-3">
               {faqData.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-2xl overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-sm overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
                   <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-sm">
                     {language === 'bn' ? faq.question : faq.questionEn}
                   </AccordionTrigger>
