@@ -100,7 +100,7 @@ export function Header() {
                   <Globe className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="rounded-xl">
+              <DropdownMenuContent align="end" className="rounded-sm">
                 <DropdownMenuItem onClick={() => setLanguage('bn')} className={`rounded-lg ${language === 'bn' ? 'bg-muted' : ''}`}>
                   বাংলা
                 </DropdownMenuItem>
