@@ -535,7 +535,7 @@ export default function Landing() {
               <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-60 h-60 bg-primary/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-12 md:p-16 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center mx-auto mb-6">
+                <div className="w-14 h-14 rounded-sm bg-primary/15 flex items-center justify-center mx-auto mb-6">
                   <Mail className="h-7 w-7 text-primary" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-3">
