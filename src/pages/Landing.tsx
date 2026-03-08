@@ -164,7 +164,7 @@ export default function Landing() {
                     {t('hero.cta.student')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-xl border-2 border-border hover:bg-muted" onClick={() => setDemoOpen(true)}>
+                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-sm border-2 border-border hover:bg-muted" onClick={() => setDemoOpen(true)}>
                   <Play className="h-4 w-4" /> {t('hero.cta.demo')}
                 </Button>
               </motion.div>
