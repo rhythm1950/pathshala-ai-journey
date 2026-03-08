@@ -399,7 +399,7 @@ export default function Landing() {
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         {[85, 72, 93, 68].map((val, i) => (
-                          <div key={i} className="bg-muted/50 rounded-xl p-4">
+                          <div key={i} className="bg-muted/50 rounded-sm p-4">
                             <div className="h-2.5 w-16 bg-muted-foreground/10 rounded mb-3" />
                             <div className="w-full bg-muted rounded-full h-2">
                               <motion.div
