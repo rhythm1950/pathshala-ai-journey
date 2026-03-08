@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, HelpCircle, LogOut, LogIn } from 'lucide-react';
+import rahulAvatar from '@/assets/avatars/rahul.jpg';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
@@ -134,7 +135,7 @@ export function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full ml-1">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.user_metadata?.avatar_url} />
+                        <AvatarImage src={user.user_metadata?.avatar_url || rahulAvatar} />
                         <AvatarFallback className="text-xs bg-primary/10 text-primary font-bold">{getUserInitials()}</AvatarFallback>
                       </Avatar>
                     </Button>

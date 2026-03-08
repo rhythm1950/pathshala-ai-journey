@@ -528,9 +528,9 @@ export default function Landing() {
       </section>
 
       {/* ═══════════ FAQ ═══════════ */}
-      <section className="py-28 relative">
+      <section className="py-16 relative">
         <div className="container mx-auto px-4 max-w-3xl relative z-10">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+          <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Clock className="h-3.5 w-3.5" /> {language === 'bn' ? 'সচরাচর প্রশ্ন' : 'FAQ'}
             </motion.div>
@@ -556,20 +556,20 @@ export default function Landing() {
       </section>
 
       {/* ═══════════ NEWSLETTER / CTA ═══════════ */}
-      <section className="py-28">
+      <section className="py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden bg-primary rounded-sm shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
+            <div className="relative overflow-hidden bg-foreground rounded-sm shadow-2xl">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.08),transparent_60%)]" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-12 md:p-16 text-center">
-                <div className="w-14 h-14 rounded-sm bg-white/15 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                  <Mail className="h-7 w-7 text-primary-foreground" />
+                <div className="w-14 h-14 rounded-sm bg-white/10 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                  <Mail className="h-7 w-7 text-background" />
                 </div>
-                <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground mb-3 leading-tight">
+                <h2 className="text-2xl md:text-4xl font-bold text-background mb-3 leading-tight">
                   {language === 'bn' ? 'আজই আপনার শেখার যাত্রা শুরু করুন' : 'Start Your Learning Journey Today'}
                 </h2>
-                <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+                <p className="text-background/60 mb-8 max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
                   {language === 'bn'
                     ? 'নতুন কোর্স, অফার এবং শিক্ষা টিপস সরাসরি আপনার ইনবক্সে পান। বিনামূল্যে সাবস্ক্রাইব করুন।'
                     : 'Get new courses, offers, and learning tips directly to your inbox. Subscribe for free.'}
@@ -580,14 +580,14 @@ export default function Landing() {
                     placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'your@email.com'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/40 h-12 rounded-sm text-sm"
+                    className="bg-white/10 border-white/20 text-background placeholder:text-background/40 h-12 rounded-sm text-sm"
                     required
                   />
-                  <Button type="submit" className="bg-white text-primary hover:bg-white/90 whitespace-nowrap h-12 px-8 rounded-sm font-bold text-sm shadow-md">
+                  <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90 whitespace-nowrap h-12 px-8 rounded-sm font-bold text-sm shadow-md">
                     {language === 'bn' ? 'সাবস্ক্রাইব' : 'Subscribe'}
                   </Button>
                 </form>
-                <div className="flex flex-wrap items-center justify-center gap-6 text-primary-foreground/50 text-xs">
+                <div className="flex flex-wrap items-center justify-center gap-6 text-background/40 text-xs">
                   <span className="flex items-center gap-1.5"><CheckCircle className="h-3.5 w-3.5" />{language === 'bn' ? 'বিনামূল্যে' : 'Free forever'}</span>
                   <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" />{language === 'bn' ? 'স্প্যাম নেই' : 'No spam'}</span>
                   <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" />{language === 'bn' ? 'যেকোনো সময় আনসাবস্ক্রাইব' : 'Unsubscribe anytime'}</span>
