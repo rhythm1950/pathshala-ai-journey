@@ -116,6 +116,14 @@ const App = () => (
                   <Route path="/blog/:id" element={<BlogDetail />} />
                   <Route path="/tutorials" element={<Tutorials />} />
                   <Route path="/community" element={<Community />} />
+                  <Route
+                    path="/study-groups"
+                    element={
+                      <ProtectedRoute allowedRoles={['student']}>
+                        <StudyGroups />
+                      </ProtectedRoute>
+                    }
+                  />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
