@@ -375,8 +375,8 @@ export default function Landing() {
 
               <motion.div variants={scaleUp} custom={1}>
                 <div className="relative">
-                  <div className="absolute -inset-2 bg-primary/5 rounded-2xl blur-xl" />
-                  <div className="relative bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="absolute -inset-2 bg-primary/5 rounded-sm blur-xl" />
+                  <div className="relative bg-card border border-border/50 rounded-sm overflow-hidden shadow-2xl">
                     <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border/30 bg-muted/30">
                       <div className="flex gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-primary/40" />
