@@ -138,7 +138,7 @@ export default function Landing() {
             {/* Left: Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
               <motion.div variants={fadeUp} custom={0}
-                className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-sm font-medium mb-8"
+                className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-sm font-medium mb-8"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 {t('hero.badge')}
