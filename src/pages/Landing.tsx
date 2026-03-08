@@ -601,7 +601,7 @@ export default function Landing() {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[80px]" />
               <div className="relative z-10 p-14 md:p-20 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-sm bg-white/15 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
                   <GraduationCap className="h-8 w-8 text-primary-foreground" />
                 </div>
                 <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5 leading-tight">{t('cta.title')}</h2>
