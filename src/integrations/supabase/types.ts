@@ -14,6 +14,47 @@ export type Database = {
   }
   public: {
     Tables: {
+      chapters: {
+        Row: {
+          chapter_number: number
+          created_at: string
+          explanation: string | null
+          explanation_bn: string | null
+          id: string
+          textbook_id: string
+          title: string
+          title_bn: string
+        }
+        Insert: {
+          chapter_number: number
+          created_at?: string
+          explanation?: string | null
+          explanation_bn?: string | null
+          id?: string
+          textbook_id: string
+          title: string
+          title_bn: string
+        }
+        Update: {
+          chapter_number?: number
+          created_at?: string
+          explanation?: string | null
+          explanation_bn?: string | null
+          id?: string
+          textbook_id?: string
+          title?: string
+          title_bn?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chapters_textbook_id_fkey"
+            columns: ["textbook_id"]
+            isOneToOne: false
+            referencedRelation: "textbooks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       courses: {
         Row: {
           category: string | null
@@ -118,6 +159,53 @@ export type Database = {
         }
         Relationships: []
       }
+      quiz_questions: {
+        Row: {
+          chapter_id: string
+          correct_answer: number
+          created_at: string
+          explanation: string | null
+          explanation_bn: string | null
+          id: string
+          options: Json
+          options_bn: Json
+          question: string
+          question_bn: string
+        }
+        Insert: {
+          chapter_id: string
+          correct_answer?: number
+          created_at?: string
+          explanation?: string | null
+          explanation_bn?: string | null
+          id?: string
+          options?: Json
+          options_bn?: Json
+          question: string
+          question_bn: string
+        }
+        Update: {
+          chapter_id?: string
+          correct_answer?: number
+          created_at?: string
+          explanation?: string | null
+          explanation_bn?: string | null
+          id?: string
+          options?: Json
+          options_bn?: Json
+          question?: string
+          question_bn?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_questions_chapter_id_fkey"
+            columns: ["chapter_id"]
+            isOneToOne: false
+            referencedRelation: "chapters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       study_group_members: {
         Row: {
           group_id: string
@@ -174,6 +262,42 @@ export type Database = {
           max_members?: number
           name?: string
           subject?: string
+        }
+        Relationships: []
+      }
+      textbooks: {
+        Row: {
+          class_level: number
+          cover_emoji: string | null
+          created_at: string
+          description: string | null
+          description_bn: string | null
+          id: string
+          subject: string
+          title: string
+          title_bn: string
+        }
+        Insert: {
+          class_level: number
+          cover_emoji?: string | null
+          created_at?: string
+          description?: string | null
+          description_bn?: string | null
+          id?: string
+          subject: string
+          title: string
+          title_bn: string
+        }
+        Update: {
+          class_level?: number
+          cover_emoji?: string | null
+          created_at?: string
+          description?: string | null
+          description_bn?: string | null
+          id?: string
+          subject?: string
+          title?: string
+          title_bn?: string
         }
         Relationships: []
       }
