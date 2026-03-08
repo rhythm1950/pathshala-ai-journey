@@ -126,6 +126,8 @@ const App = () => (
                       </ProtectedRoute>
                     }
                   />
+                  <Route path="/textbooks" element={<Textbooks />} />
+                  <Route path="/textbooks/:id" element={<TextbookDetail />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
