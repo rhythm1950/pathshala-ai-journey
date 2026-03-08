@@ -188,7 +188,7 @@ export function Header() {
               </Link>
             ))}
             {!user && (
-              <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-semibold text-primary hover:bg-muted">
+              <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded-sm text-sm font-semibold text-primary hover:bg-muted">
                 Sign In / Sign Up
               </Link>
             )}
