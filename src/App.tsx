@@ -33,6 +33,7 @@ import Community from "./pages/Community";
 import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
 import { ScrollToTopOnNav } from "@/components/ScrollToTopOnNav";
+import StudyGroups from "./pages/StudyGroups";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
