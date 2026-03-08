@@ -102,7 +102,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-border/15">
-        <div className="container mx-auto px-4 max-w-7xl py-5">
+        <div className="container mx-auto px-4 max-w-6xl py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} পাঠশালা AI. {t('footer.rights')}</p>
             <div className="flex items-center gap-4">
