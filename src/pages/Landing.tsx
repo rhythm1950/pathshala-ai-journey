@@ -368,7 +368,7 @@ export default function Landing() {
                     </div>
                   ))}
                 </div>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground mt-8 gap-2 rounded-xl shadow-md" size="lg" onClick={() => setDemoOpen(true)}>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground mt-8 gap-2 rounded-sm shadow-md" size="lg" onClick={() => setDemoOpen(true)}>
                   {language === 'bn' ? 'ডেমো দেখুন' : 'Watch Demo'} <Play className="h-4 w-4" />
                 </Button>
               </motion.div>
