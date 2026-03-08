@@ -451,7 +451,7 @@ export default function Landing() {
           <motion.div className="grid md:grid-cols-3 gap-6 items-stretch" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {pricingPlans.map((plan, index) => (
               <motion.div key={index} variants={fadeUp} custom={index}>
-                <Card className={`relative overflow-hidden rounded-2xl transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl ring-1 ring-primary/20 scale-[1.02]' : 'border border-border/50 hover:border-primary/20 hover:shadow-lg'}`}>
+                <Card className={`relative overflow-hidden rounded-sm transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl ring-1 ring-primary/20 scale-[1.02]' : 'border border-border/50 hover:border-primary/20 hover:shadow-lg'}`}>
                   {plan.popular && (
                     <div className="bg-primary py-2.5 text-center">
                       <span className="text-primary-foreground text-xs font-bold tracking-widest uppercase">
