@@ -490,7 +490,7 @@ export default function Landing() {
       {/* ═══════════ TESTIMONIALS ═══════════ */}
       <section className="py-28 relative">
         <div className="absolute inset-0 bg-muted/30" />
-        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
               <Star className="h-3.5 w-3.5 fill-primary" /> {language === 'bn' ? 'শিক্ষার্থীদের মতামত' : 'Student Reviews'}
