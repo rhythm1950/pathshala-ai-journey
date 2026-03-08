@@ -33,6 +33,7 @@ import Community from "./pages/Community";
 import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
 import { ScrollToTopOnNav } from "@/components/ScrollToTopOnNav";
+import StudyGroups from "./pages/StudyGroups";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -115,6 +116,14 @@ const App = () => (
                   <Route path="/blog/:id" element={<BlogDetail />} />
                   <Route path="/tutorials" element={<Tutorials />} />
                   <Route path="/community" element={<Community />} />
+                  <Route
+                    path="/study-groups"
+                    element={
+                      <ProtectedRoute allowedRoles={['student']}>
+                        <StudyGroups />
+                      </ProtectedRoute>
+                    }
+                  />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
