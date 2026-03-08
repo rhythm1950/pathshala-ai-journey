@@ -555,7 +555,7 @@ export default function Landing() {
                     className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-sm text-sm"
                     required
                   />
-                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-xl font-bold text-sm shadow-md">
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-sm font-bold text-sm shadow-md">
                     {language === 'bn' ? 'সাবস্ক্রাইব' : 'Subscribe'}
                   </Button>
                 </form>
