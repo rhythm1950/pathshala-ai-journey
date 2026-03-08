@@ -18,7 +18,7 @@ import {
 import { toast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Plus, Search, BookOpen, UserPlus, UserMinus, ArrowLeft, Sparkles, Filter } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SUBJECTS = ['Mathematics', 'Physics', 'English', 'Chemistry', 'Biology', 'Computer Science', 'History'];
 
