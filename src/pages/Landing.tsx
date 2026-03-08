@@ -186,11 +186,11 @@ export default function Landing() {
               className="relative hidden lg:block"
             >
               <div className="relative">
-                <div className="absolute -inset-1 bg-primary/10 rounded-2xl blur-2xl" />
+                <div className="absolute -inset-1 bg-primary/10 rounded-sm blur-2xl" />
                 <img
                   src={heroMockup}
                   alt="Pathshala AI Platform"
-                  className="relative rounded-2xl shadow-2xl border border-border/50 w-full"
+                  className="relative rounded-sm shadow-2xl border border-border/50 w-full"
                 />
                 {/* Floating stat cards */}
                 <motion.div
