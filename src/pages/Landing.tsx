@@ -26,14 +26,6 @@ const fadeUp = {
   })
 };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: (i: number) => ({
-    opacity: 1,
-    transition: { delay: i * 0.1, duration: 0.5 }
-  })
-};
-
 const scaleUp = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: (i: number) => ({
@@ -53,19 +45,19 @@ export default function Landing() {
   const [demoOpen, setDemoOpen] = useState(false);
 
   const stats = [
-    { value: '50K+', label: t('stats.students'), icon: Users, color: 'from-primary/20 to-primary/5' },
-    { value: '500+', label: t('stats.courses'), icon: BookOpen, color: 'from-accent/20 to-accent/5' },
-    { value: '200+', label: t('stats.teachers'), icon: Award, color: 'from-highlight/20 to-highlight/5' },
-    { value: '95%', label: t('stats.success'), icon: TrendingUp, color: 'from-primary/20 to-primary/5' },
+    { value: '50K+', label: t('stats.students'), icon: Users },
+    { value: '500+', label: t('stats.courses'), icon: BookOpen },
+    { value: '200+', label: t('stats.teachers'), icon: Award },
+    { value: '95%', label: t('stats.success'), icon: TrendingUp },
   ];
 
   const features = [
-    { icon: Sparkles, title: t('features.aiPlan.title'), desc: t('features.aiPlan.desc'), gradient: 'from-primary to-highlight' },
-    { icon: Play, title: t('features.liveClass.title'), desc: t('features.liveClass.desc'), gradient: 'from-accent to-highlight' },
-    { icon: BarChart3, title: t('features.skillGap.title'), desc: t('features.skillGap.desc'), gradient: 'from-highlight to-primary' },
-    { icon: Rocket, title: t('features.career.title'), desc: t('features.career.desc'), gradient: 'from-primary to-accent' },
-    { icon: Shield, title: t('features.badges.title'), desc: t('features.badges.desc'), gradient: 'from-accent to-primary' },
-    { icon: Users, title: t('features.collab.title'), desc: t('features.collab.desc'), gradient: 'from-highlight to-accent' },
+    { icon: Sparkles, title: t('features.aiPlan.title'), desc: t('features.aiPlan.desc') },
+    { icon: Play, title: t('features.liveClass.title'), desc: t('features.liveClass.desc') },
+    { icon: BarChart3, title: t('features.skillGap.title'), desc: t('features.skillGap.desc') },
+    { icon: Rocket, title: t('features.career.title'), desc: t('features.career.desc') },
+    { icon: Shield, title: t('features.badges.title'), desc: t('features.badges.desc') },
+    { icon: Users, title: t('features.collab.title'), desc: t('features.collab.desc') },
   ];
 
   const howItWorks = [
@@ -133,23 +125,20 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen overflow-hidden">
-      {/* ════════════════════════════════════════════
-          HERO SECTION 
-      ════════════════════════════════════════════ */}
-      <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
-        {/* Background layers */}
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="relative pt-20 pb-28 lg:pt-28 lg:pb-36 overflow-hidden">
         <div className="absolute inset-0 gradient-subtle" />
-        <div className="absolute top-0 left-[10%] w-[600px] h-[600px] bg-primary/6 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-[5%] w-[500px] h-[500px] bg-accent/6 rounded-full blur-[130px]" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-highlight/4 rounded-full blur-[150px]" />
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        {/* Geometric decoration */}
+        <div className="absolute top-20 right-[10%] w-72 h-72 border border-primary/10 rounded-full" />
+        <div className="absolute top-32 right-[12%] w-48 h-48 border border-primary/5 rounded-full" />
+        <div className="absolute bottom-20 left-[5%] w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 relative z-10 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
             <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
               <motion.div variants={fadeUp} custom={0}
-                className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-primary/15"
+                className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-sm font-medium mb-8"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 {t('hero.badge')}
@@ -157,36 +146,35 @@ export default function Landing() {
               </motion.div>
 
               <motion.h1 variants={fadeUp} custom={1}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-[1.05] tracking-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.08] tracking-tight"
               >
                 {t('hero.title')}{' '}
-                <span className="gradient-text inline-block">{t('hero.titleHighlight')}</span>
+                <span className="text-primary">{t('hero.titleHighlight')}</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} custom={2}
-                className="text-base lg:text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed"
+                className="text-lg text-muted-foreground mb-10 max-w-lg leading-relaxed"
               >
                 {t('hero.subtitle')}
               </motion.p>
 
               <motion.div variants={fadeUp} custom={3} className="flex flex-col sm:flex-row gap-3">
                 <Link to="/auth">
-                  <Button size="lg" className="btn-gradient gap-2 text-base px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-base px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
                     {t('hero.cta.student')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-xl border-2 hover:bg-muted/50" onClick={() => setDemoOpen(true)}>
+                <Button size="lg" variant="outline" className="gap-2 text-base px-8 py-6 rounded-xl border-2 border-border hover:bg-muted" onClick={() => setDemoOpen(true)}>
                   <Play className="h-4 w-4" /> {t('hero.cta.demo')}
                 </Button>
               </motion.div>
 
-              {/* Trust row */}
               <motion.div variants={fadeUp} custom={4}
-                className="mt-10 flex flex-wrap items-center gap-5 text-sm text-muted-foreground"
+                className="mt-12 flex flex-wrap items-center gap-6 text-sm text-muted-foreground"
               >
-                <span className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-primary" /> {language === 'bn' ? 'বিনামূল্যে শুরু করুন' : 'Free to start'}</span>
-                <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" /> {language === 'bn' ? 'ক্রেডিট কার্ড দরকার নেই' : 'No credit card'}</span>
-                <span className="flex items-center gap-1.5"><Globe className="h-4 w-4 text-primary" /> {language === 'bn' ? 'বাংলায় শিখুন' : 'Learn in Bengali'}</span>
+                <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> {language === 'bn' ? 'বিনামূল্যে শুরু করুন' : 'Free to start'}</span>
+                <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-primary" /> {language === 'bn' ? 'ক্রেডিট কার্ড দরকার নেই' : 'No credit card'}</span>
+                <span className="flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> {language === 'bn' ? 'বাংলায় শিখুন' : 'Learn in Bengali'}</span>
               </motion.div>
             </motion.div>
 
@@ -198,26 +186,25 @@ export default function Landing() {
               className="relative hidden lg:block"
             >
               <div className="relative">
-                {/* Glow behind image */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/15 to-highlight/20 rounded-3xl blur-2xl" />
+                <div className="absolute -inset-1 bg-primary/10 rounded-2xl blur-2xl" />
                 <img
                   src={heroMockup}
                   alt="Pathshala AI Platform"
-                  className="relative rounded-2xl shadow-2xl border border-border/30 w-full"
+                  className="relative rounded-2xl shadow-2xl border border-border/50 w-full"
                 />
                 {/* Floating stat cards */}
                 <motion.div
                   animate={{ y: [-8, 8, -8] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-border/50"
+                  className="absolute -left-8 top-1/4 bg-card/95 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-border/50"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                       <TrendingUp className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">{language === 'bn' ? 'অগ্রগতি' : 'Progress'}</p>
-                      <p className="text-lg font-black gradient-text">92%</p>
+                      <p className="text-lg font-bold text-primary">92%</p>
                     </div>
                   </div>
                 </motion.div>
@@ -225,15 +212,15 @@ export default function Landing() {
                 <motion.div
                   animate={{ y: [6, -6, 6] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-6 bottom-1/4 bg-card/95 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-border/50"
+                  className="absolute -right-6 bottom-1/4 bg-card/95 backdrop-blur-xl rounded-xl p-4 shadow-xl border border-border/50"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
-                      <Award className="h-5 w-5 text-accent" />
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Award className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">{language === 'bn' ? 'ব্যাজ অর্জিত' : 'Badges Earned'}</p>
-                      <p className="text-lg font-black">12 🏆</p>
+                      <p className="text-lg font-bold">12 🏆</p>
                     </div>
                   </div>
                 </motion.div>
@@ -243,12 +230,10 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          SOCIAL PROOF MARQUEE
-      ════════════════════════════════════════════ */}
-      <section className="py-6 border-y border-border/30 bg-muted/20 overflow-hidden">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex items-center justify-center gap-8 lg:gap-16 flex-wrap opacity-50">
+      {/* ═══════════ PARTNER MARQUEE ═══════════ */}
+      <section className="py-8 border-y border-border/40 bg-muted/30 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex items-center justify-center gap-10 lg:gap-16 flex-wrap opacity-40">
             {partners.map((partner, i) => (
               <div key={i} className="flex items-center gap-2 text-muted-foreground whitespace-nowrap">
                 <Building className="h-5 w-5" />
@@ -259,27 +244,22 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          STATS
-      ════════════════════════════════════════════ */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-5xl">
+      {/* ═══════════ STATS ═══════════ */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={staggerContainer}
           >
             {stats.map((stat, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group cursor-default">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className="relative bg-card border border-border/40 rounded-2xl p-6 lg:p-8 text-center hover:border-primary/20 hover:shadow-lg transition-all duration-500">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="text-3xl lg:text-4xl font-black gradient-text mb-1 tracking-tight">{stat.value}</div>
-                    <div className="text-xs lg:text-sm text-muted-foreground font-medium uppercase tracking-wider">{stat.label}</div>
+                <div className="relative group cursor-default bg-card border border-border/50 rounded-2xl p-8 text-center hover:border-primary/30 hover:shadow-lg transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                    <stat.icon className="h-7 w-7 text-primary" />
                   </div>
+                  <div className="text-3xl lg:text-4xl font-bold text-foreground mb-1 tracking-tight">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -287,37 +267,32 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          HOW IT WORKS
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-muted/40 to-muted/20" />
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
+      {/* ═══════════ HOW IT WORKS ═══════════ */}
+      <section className="py-28 relative">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> {language === 'bn' ? 'কিভাবে কাজ করে' : 'How it works'}
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-black mb-5">
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">
               {language === 'bn' ? 'চারটি ধাপে শুরু করুন' : 'Get Started in 4 Steps'}
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-base lg:text-lg">
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-lg">
               {language === 'bn' ? 'আপনার ব্যক্তিগত শিক্ষা যাত্রা আজই শুরু করুন' : 'Begin your personalized learning journey today'}
             </motion.p>
           </motion.div>
 
           <motion.div className="relative" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            {/* Connection line */}
-            <div className="hidden lg:block absolute top-24 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-primary/20 via-accent/30 to-primary/20" />
-
+            <div className="hidden lg:block absolute top-20 left-[12%] right-[12%] h-px bg-border" />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {howItWorks.map((item, index) => (
                 <motion.div key={index} variants={fadeUp} custom={index} className="relative group">
-                  <div className="relative bg-card border border-border/40 rounded-2xl p-7 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
-                    {/* Step number */}
-                    <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center font-black text-white text-base shadow-lg mx-auto mb-6 relative z-10">
+                  <div className="relative bg-card border border-border/50 rounded-2xl p-8 text-center h-full hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                    <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-md mx-auto mb-6 relative z-10">
                       {item.step}
                     </div>
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-500">
                       <item.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-base font-bold mb-2">{item.title}</h3>
@@ -330,35 +305,28 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          FEATURES - Bento Grid Style
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/4 rounded-full blur-[120px]" />
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
+      {/* ═══════════ FEATURES ═══════════ */}
+      <section className="py-28 relative">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
               <Layers className="h-3.5 w-3.5" /> {language === 'bn' ? 'ফিচার সমূহ' : 'Features'}
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-black mb-5">{t('features.title')}</motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-base lg:text-lg">{t('features.subtitle')}</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('features.title')}</motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-lg">{t('features.subtitle')}</motion.p>
           </motion.div>
 
-          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {features.map((feature, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-card border border-border/40 rounded-2xl p-7 h-full hover:border-primary/25 hover:shadow-xl transition-all duration-500">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-2 transition-all duration-500 shadow-sm`}>
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-base font-bold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
-                    <div className="mt-4 flex items-center gap-1 text-primary text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {language === 'bn' ? 'আরও জানুন' : 'Learn more'} <ArrowUpRight className="h-3.5 w-3.5" />
-                    </div>
+                <div className="relative group h-full bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500">
+                  <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
+                    <feature.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                  <div className="mt-5 flex items-center gap-1 text-primary text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {language === 'bn' ? 'আরও জানুন' : 'Learn more'} <ArrowUpRight className="h-3.5 w-3.5" />
                   </div>
                 </div>
               </motion.div>
@@ -367,19 +335,17 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          INTERACTIVE DEMO PREVIEW
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30" />
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      {/* ═══════════ AI COMPANION ═══════════ */}
+      <section className="py-28 relative">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div variants={fadeUp} custom={0}>
-                <div className="inline-flex items-center gap-2 bg-highlight/10 text-highlight px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
                   <Sparkles className="h-3.5 w-3.5" /> {language === 'bn' ? 'AI চালিত' : 'AI-Powered'}
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-black mb-5">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                   {language === 'bn' ? 'আপনার শেখার সাথী হিসেবে AI' : 'AI as Your Learning Companion'}
                 </h2>
                 <p className="text-muted-foreground mb-8 text-base leading-relaxed">
@@ -395,53 +361,49 @@ export default function Landing() {
                     { icon: Target, text: language === 'bn' ? 'দুর্বলতা চিহ্নিত ও উন্নতি' : 'Weakness identification & improvement' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm">
-                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0">
                         <item.icon className="h-4 w-4 text-primary" />
                       </div>
                       <span className="font-medium">{item.text}</span>
                     </div>
                   ))}
                 </div>
-                <Button className="btn-gradient mt-8 gap-2 rounded-xl" size="lg" onClick={() => setDemoOpen(true)}>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground mt-8 gap-2 rounded-xl shadow-md" size="lg" onClick={() => setDemoOpen(true)}>
                   {language === 'bn' ? 'ডেমো দেখুন' : 'Watch Demo'} <Play className="h-4 w-4" />
                 </Button>
               </motion.div>
 
               <motion.div variants={scaleUp} custom={1}>
-                {/* Fake dashboard preview */}
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-br from-primary/15 to-accent/15 rounded-3xl blur-xl" />
-                  <div className="relative bg-card border border-border/40 rounded-2xl overflow-hidden shadow-2xl">
-                    {/* Fake top bar */}
-                    <div className="flex items-center gap-2 px-4 py-3 border-b border-border/30 bg-muted/30">
+                  <div className="absolute -inset-2 bg-primary/5 rounded-2xl blur-xl" />
+                  <div className="relative bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border/30 bg-muted/30">
                       <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                        <div className="w-3 h-3 rounded-full bg-warning/60" />
                         <div className="w-3 h-3 rounded-full bg-primary/40" />
+                        <div className="w-3 h-3 rounded-full bg-muted-foreground/20" />
+                        <div className="w-3 h-3 rounded-full bg-muted-foreground/20" />
                       </div>
                       <div className="flex-1 mx-8">
                         <div className="bg-muted rounded-lg h-6 max-w-[200px] mx-auto" />
                       </div>
                     </div>
-                    {/* Fake content */}
                     <div className="p-6 space-y-4">
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="h-4 w-32 bg-foreground/10 rounded mb-2" />
                           <div className="h-3 w-48 bg-muted-foreground/10 rounded" />
                         </div>
-                        <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
-                          <Sparkles className="h-5 w-5 text-white" />
+                        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                          <Sparkles className="h-5 w-5 text-primary-foreground" />
                         </div>
                       </div>
-                      {/* Progress bars */}
                       <div className="grid grid-cols-2 gap-3">
                         {[85, 72, 93, 68].map((val, i) => (
                           <div key={i} className="bg-muted/50 rounded-xl p-4">
                             <div className="h-2.5 w-16 bg-muted-foreground/10 rounded mb-3" />
                             <div className="w-full bg-muted rounded-full h-2">
                               <motion.div
-                                className="h-2 rounded-full gradient-primary"
+                                className="h-2 rounded-full bg-primary"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: `${val}%` }}
                                 transition={{ duration: 1.5, delay: 0.5 + i * 0.15 }}
@@ -454,8 +416,7 @@ export default function Landing() {
                           </div>
                         ))}
                       </div>
-                      {/* AI recommendation card */}
-                      <div className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-4 border border-primary/10">
+                      <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
                         <div className="flex items-center gap-2 mb-2">
                           <Brain className="h-4 w-4 text-primary" />
                           <span className="text-xs font-bold text-primary">{language === 'bn' ? 'AI সুপারিশ' : 'AI Recommendation'}</span>
@@ -472,42 +433,40 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          PRICING
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-4 max-w-5xl relative z-10">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-highlight/10 text-highlight px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
+      {/* ═══════════ PRICING ═══════════ */}
+      <section className="py-28 relative">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+          <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> {language === 'bn' ? 'প্রাইসিং' : 'Pricing'}
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-black mb-5">
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">
               {language === 'bn' ? 'সহজ ও স্বচ্ছ মূল্য' : 'Simple, Transparent Pricing'}
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-base lg:text-lg">
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground max-w-xl mx-auto text-lg">
               {language === 'bn' ? 'আপনার প্রয়োজন অনুযায়ী সঠিক প্ল্যান বেছে নিন' : 'Choose the plan that fits your learning goals'}
             </motion.p>
           </motion.div>
 
-          <motion.div className="grid md:grid-cols-3 gap-5 lg:gap-6 items-stretch" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+          <motion.div className="grid md:grid-cols-3 gap-6 items-stretch" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {pricingPlans.map((plan, index) => (
               <motion.div key={index} variants={fadeUp} custom={index}>
-                <Card className={`relative overflow-hidden rounded-2xl transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl bg-card ring-1 ring-primary/10' : 'border border-border/40 bg-card hover:border-primary/20 hover:shadow-lg'}`}>
+                <Card className={`relative overflow-hidden rounded-2xl transition-all duration-500 h-full flex flex-col ${plan.popular ? 'border-2 border-primary shadow-2xl ring-1 ring-primary/20 scale-[1.02]' : 'border border-border/50 hover:border-primary/20 hover:shadow-lg'}`}>
                   {plan.popular && (
-                    <div className="gradient-primary py-2.5 text-center">
-                      <span className="text-white text-xs font-bold tracking-widest uppercase">
+                    <div className="bg-primary py-2.5 text-center">
+                      <span className="text-primary-foreground text-xs font-bold tracking-widest uppercase">
                         {language === 'bn' ? '🔥 সবচেয়ে জনপ্রিয়' : '🔥 Most Popular'}
                       </span>
                     </div>
                   )}
-                  <CardContent className="p-7 flex flex-col flex-1">
+                  <CardContent className="p-8 flex flex-col flex-1">
                     <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-5">{plan.desc}</p>
-                    <div className="mb-6">
-                      <span className="text-4xl lg:text-5xl font-black tracking-tight">{plan.price}</span>
+                    <p className="text-sm text-muted-foreground mb-6">{plan.desc}</p>
+                    <div className="mb-8">
+                      <span className="text-4xl lg:text-5xl font-bold tracking-tight">{plan.price}</span>
                       <span className="text-muted-foreground text-base ml-1">{plan.period}</span>
                     </div>
-                    <ul className="space-y-3 mb-8 flex-1">
+                    <ul className="space-y-3.5 mb-8 flex-1">
                       {plan.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
                           <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
@@ -516,7 +475,7 @@ export default function Landing() {
                       ))}
                     </ul>
                     <Link to="/auth" className="block">
-                      <Button className={`w-full py-5 rounded-xl text-sm font-bold ${plan.popular ? 'btn-gradient shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
+                      <Button className={`w-full py-5 rounded-xl text-sm font-bold ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
                         {plan.cta}
                       </Button>
                     </Link>
@@ -528,36 +487,31 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          TESTIMONIALS
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/20 via-muted/40 to-muted/20" />
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
-              <Star className="h-3.5 w-3.5 fill-accent" /> {language === 'bn' ? 'শিক্ষার্থীদের মতামত' : 'Student Reviews'}
+      {/* ═══════════ TESTIMONIALS ═══════════ */}
+      <section className="py-28 relative">
+        <div className="absolute inset-0 bg-muted/30" />
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <motion.div className="text-center mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+              <Star className="h-3.5 w-3.5 fill-primary" /> {language === 'bn' ? 'শিক্ষার্থীদের মতামত' : 'Student Reviews'}
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-black mb-5">{t('testimonials.title')}</motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base lg:text-lg">{t('testimonials.subtitle')}</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('testimonials.title')}</motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg">{t('testimonials.subtitle')}</motion.p>
           </motion.div>
 
-          <motion.div className="grid md:grid-cols-3 gap-5" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+          <motion.div className="grid md:grid-cols-3 gap-6" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {testimonials.map((testimonial, index) => (
               <motion.div key={testimonial.id} variants={fadeUp} custom={index}>
-                <Card className="border border-border/40 bg-card rounded-2xl p-7 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
+                <Card className="border border-border/50 rounded-2xl p-8 h-full hover:shadow-xl hover:border-primary/20 transition-all duration-500">
                   <CardContent className="p-0 flex flex-col h-full">
-                    {/* Stars */}
                     <div className="flex gap-0.5 mb-5">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                       ))}
                     </div>
-                    {/* Quote */}
                     <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
                       "{language === 'bn' ? testimonial.quote : testimonial.quoteEn}"
                     </p>
-                    {/* Author */}
                     <div className="flex items-center gap-3 pt-5 border-t border-border/30">
                       <img src={testimonial.avatar} alt={testimonial.name} className="w-11 h-11 rounded-full ring-2 ring-primary/15" />
                       <div>
@@ -573,24 +527,21 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          NEWSLETTER
-      ════════════════════════════════════════════ */}
-      <section className="py-24">
+      {/* ═══════════ NEWSLETTER ═══════════ */}
+      <section className="py-28">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden gradient-secondary rounded-3xl shadow-2xl">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[100px]" />
-              <div className="absolute bottom-0 left-0 w-60 h-60 bg-accent/10 rounded-full blur-[80px]" />
-              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-              <div className="relative z-10 p-10 md:p-14 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-                  <Mail className="h-7 w-7 text-white" />
+            <div className="relative overflow-hidden bg-secondary rounded-3xl shadow-2xl">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
+              <div className="absolute bottom-0 left-0 w-60 h-60 bg-primary/5 rounded-full blur-[80px]" />
+              <div className="relative z-10 p-12 md:p-16 text-center">
+                <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center mx-auto mb-6">
+                  <Mail className="h-7 w-7 text-primary" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-3">
                   {language === 'bn' ? 'নিউজলেটার সাবস্ক্রাইব করুন' : 'Stay in the Loop'}
                 </h2>
-                <p className="text-white/60 mb-8 max-w-md mx-auto text-sm lg:text-base">
+                <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm lg:text-base">
                   {language === 'bn'
                     ? 'নতুন কোর্স, অফার এবং শিক্ষা টিপস সরাসরি আপনার ইনবক্সে পান'
                     : 'Get new courses, offers, and learning tips directly to your inbox'}
@@ -601,10 +552,10 @@ export default function Landing() {
                     placeholder={language === 'bn' ? 'আপনার ইমেইল' : 'your@email.com'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/10 border-white/15 text-white placeholder:text-white/40 h-12 rounded-xl text-sm backdrop-blur-sm"
+                    className="bg-secondary-foreground/5 border-secondary-foreground/10 text-secondary-foreground placeholder:text-muted-foreground h-12 rounded-xl text-sm"
                     required
                   />
-                  <Button type="submit" className="bg-white text-secondary hover:bg-white/90 whitespace-nowrap h-12 px-6 rounded-xl font-bold text-sm">
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap h-12 px-6 rounded-xl font-bold text-sm shadow-md">
                     {language === 'bn' ? 'সাবস্ক্রাইব' : 'Subscribe'}
                   </Button>
                 </form>
@@ -614,24 +565,21 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          FAQ
-      ════════════════════════════════════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/20 to-transparent" />
+      {/* ═══════════ FAQ ═══════════ */}
+      <section className="py-28 relative">
         <div className="container mx-auto px-4 max-w-3xl relative z-10">
-          <motion.div className="text-center mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-xs font-bold mb-5 uppercase tracking-wider">
+          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
               <Clock className="h-3.5 w-3.5" /> {language === 'bn' ? 'সচরাচর প্রশ্ন' : 'FAQ'}
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-black mb-5">{t('faq.title')}</motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-base lg:text-lg">{t('faq.subtitle')}</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('faq.title')}</motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg">{t('faq.subtitle')}</motion.p>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
             <Accordion type="single" collapsible className="space-y-3">
               {faqData.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/40 px-6 rounded-2xl overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border/50 px-6 rounded-2xl overflow-hidden data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all">
                   <AccordionTrigger className="text-left font-semibold hover:no-underline py-5 text-sm">
                     {language === 'bn' ? faq.question : faq.questionEn}
                   </AccordionTrigger>
@@ -645,27 +593,25 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          FINAL CTA
-      ════════════════════════════════════════════ */}
-      <section className="py-24">
+      {/* ═══════════ FINAL CTA ═══════════ */}
+      <section className="py-28">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scaleUp} custom={0}>
-            <div className="relative overflow-hidden gradient-primary rounded-3xl shadow-2xl">
+            <div className="relative overflow-hidden bg-primary rounded-3xl shadow-2xl">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[80px]" />
-              <div className="relative z-10 p-12 md:p-20 text-center">
+              <div className="relative z-10 p-14 md:p-20 text-center">
                 <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
-                  <GraduationCap className="h-8 w-8 text-white" />
+                  <GraduationCap className="h-8 w-8 text-primary-foreground" />
                 </div>
-                <h2 className="text-3xl lg:text-5xl font-black text-white mb-5 leading-tight">{t('cta.title')}</h2>
-                <p className="text-white/70 mb-10 max-w-lg mx-auto text-base lg:text-lg leading-relaxed">{t('cta.subtitle')}</p>
+                <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5 leading-tight">{t('cta.title')}</h2>
+                <p className="text-primary-foreground/70 mb-10 max-w-lg mx-auto text-lg leading-relaxed">{t('cta.subtitle')}</p>
                 <Link to="/auth">
                   <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 text-base px-10 py-7 rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all">
                     {t('cta.button')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-                <p className="text-white/40 text-xs mt-6">
+                <p className="text-primary-foreground/40 text-xs mt-6">
                   {language === 'bn' ? 'বিনামূল্যে শুরু করুন • কোনো ক্রেডিট কার্ড লাগবে না' : 'Free to start • No credit card required'}
                 </p>
               </div>
@@ -685,8 +631,8 @@ export default function Landing() {
           </DialogHeader>
           <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
             <div className="text-center">
-              <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Play className="h-8 w-8 text-white ml-1" />
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Play className="h-8 w-8 text-primary-foreground ml-1" />
               </div>
               <p className="text-muted-foreground font-medium">
                 {language === 'bn' ? 'ডেমো ভিডিও শীঘ্রই আসছে' : 'Demo video coming soon'}

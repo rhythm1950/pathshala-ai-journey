@@ -44,8 +44,8 @@ export function Footer() {
 
   const FooterLinkSection = ({ title, links }: { title: string; links: { to: string; label: string }[] }) => (
     <div>
-      <h4 className="text-sm font-bold mb-4 uppercase tracking-wider text-secondary-foreground/80">{title}</h4>
-      <ul className="space-y-2.5">
+      <h4 className="text-sm font-bold mb-4 uppercase tracking-wider text-secondary-foreground/70">{title}</h4>
+      <ul className="space-y-3">
         {links.map((link, index) => (
           <li key={index}>
             <Link to={link.to} className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors flex items-center gap-1 group">
@@ -60,35 +60,34 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-secondary-foreground mt-auto">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 max-w-6xl py-16">
+      <div className="container mx-auto px-4 max-w-7xl py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="col-span-2 space-y-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-lg">প</span>
+              <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">প</span>
               </div>
-              <span className="font-bold text-lg text-secondary-foreground">
-                পাঠশালা <span className="gradient-text">AI</span>
+              <span className="font-bold text-lg text-secondary-foreground tracking-tight">
+                পাঠশালা <span className="text-primary">AI</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               {t('footer.description')}
             </p>
-            
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Mail className="h-3.5 w-3.5" /><span>support@pathshala.ai</span></div>
-              <div className="flex items-center gap-2"><Phone className="h-3.5 w-3.5" /><span>+880 1234-567890</span></div>
-              <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /><span>{language === 'bn' ? 'ঢাকা, বাংলাদেশ' : 'Dhaka, Bangladesh'}</span></div>
+
+            <div className="space-y-2.5 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2.5"><Mail className="h-4 w-4 text-primary/60" /><span>support@pathshala.ai</span></div>
+              <div className="flex items-center gap-2.5"><Phone className="h-4 w-4 text-primary/60" /><span>+880 1234-567890</span></div>
+              <div className="flex items-center gap-2.5"><MapPin className="h-4 w-4 text-primary/60" /><span>{language === 'bn' ? 'ঢাকা, বাংলাদেশ' : 'Dhaka, Bangladesh'}</span></div>
             </div>
 
             <div className="flex gap-2">
               {socialLinks.map((social, index) => (
                 <a key={index} href={social.href} aria-label={social.label}
-                  className="w-8 h-8 rounded-lg bg-secondary-foreground/8 flex items-center justify-center hover:bg-primary/20 transition-all duration-300 group"
+                  className="w-9 h-9 rounded-lg bg-secondary-foreground/8 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all duration-300 group"
                 >
-                  <social.icon className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary" />
+                  <social.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
                 </a>
               ))}
             </div>
@@ -103,7 +102,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-border/15">
-        <div className="container mx-auto px-4 max-w-6xl py-5">
+        <div className="container mx-auto px-4 max-w-7xl py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>© {new Date().getFullYear()} পাঠশালা AI. {t('footer.rights')}</p>
             <div className="flex items-center gap-4">
