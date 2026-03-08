@@ -342,7 +342,7 @@ export default function Landing() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div variants={fadeUp} custom={0}>
-                <div className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
                   <Sparkles className="h-3.5 w-3.5" /> {language === 'bn' ? 'AI চালিত' : 'AI-Powered'}
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">
