@@ -232,7 +232,7 @@ export default function Landing() {
 
       {/* ═══════════ PARTNER MARQUEE ═══════════ */}
       <section className="py-8 border-y border-border/40 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex items-center justify-center gap-10 lg:gap-16 flex-wrap opacity-40">
             {partners.map((partner, i) => (
               <div key={i} className="flex items-center gap-2 text-muted-foreground whitespace-nowrap">
