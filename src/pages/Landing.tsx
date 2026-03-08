@@ -254,8 +254,8 @@ export default function Landing() {
           >
             {stats.map((stat, index) => (
               <motion.div key={index} variants={scaleUp} custom={index}>
-                <div className="relative group cursor-default bg-card border border-border/50 rounded-2xl p-8 text-center hover:border-primary/30 hover:shadow-lg transition-all duration-500">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                <div className="relative group cursor-default bg-card border border-border/50 rounded-sm p-8 text-center hover:border-primary/30 hover:shadow-lg transition-all duration-500">
+                  <div className="w-14 h-14 rounded-sm bg-primary/8 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
                     <stat.icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="text-3xl lg:text-4xl font-bold text-foreground mb-1 tracking-tight">{stat.value}</div>
