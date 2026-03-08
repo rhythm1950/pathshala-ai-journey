@@ -127,6 +127,14 @@ const App = () => (
                       </ProtectedRoute>
                     }
                   />
+                  <Route
+                    path="/study-groups/:id"
+                    element={
+                      <ProtectedRoute allowedRoles={['student']}>
+                        <StudyGroupDetail />
+                      </ProtectedRoute>
+                    }
+                  />
                   <Route path="/textbooks" element={<Textbooks />} />
                   <Route path="/textbooks/:id" element={<TextbookDetail />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
