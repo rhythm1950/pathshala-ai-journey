@@ -34,6 +34,8 @@ import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
 import { ScrollToTopOnNav } from "@/components/ScrollToTopOnNav";
 import StudyGroups from "./pages/StudyGroups";
+import Textbooks from "./pages/Textbooks";
+import TextbookDetail from "./pages/TextbookDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -124,6 +126,8 @@ const App = () => (
                       </ProtectedRoute>
                     }
                   />
+                  <Route path="/textbooks" element={<Textbooks />} />
+                  <Route path="/textbooks/:id" element={<TextbookDetail />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
