@@ -27,6 +27,7 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Partners from "./pages/Partners";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import Tutorials from "./pages/Tutorials";
 import Community from "./pages/Community";
 import Auth from "./pages/Auth";
