@@ -607,7 +607,7 @@ export default function Landing() {
                 <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5 leading-tight">{t('cta.title')}</h2>
                 <p className="text-primary-foreground/70 mb-10 max-w-lg mx-auto text-lg leading-relaxed">{t('cta.subtitle')}</p>
                 <Link to="/auth">
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 text-base px-10 py-7 rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all">
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 gap-2 text-base px-10 py-7 rounded-sm font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all">
                     {t('cta.button')} <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
