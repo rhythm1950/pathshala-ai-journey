@@ -569,7 +569,7 @@ export default function Landing() {
       <section className="py-28 relative">
         <div className="container mx-auto px-4 max-w-3xl relative z-10">
           <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
+            <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 bg-primary/8 text-primary border border-primary/15 px-4 py-2 rounded-sm text-xs font-bold mb-6 uppercase tracking-wider">
               <Clock className="h-3.5 w-3.5" /> {language === 'bn' ? 'সচরাচর প্রশ্ন' : 'FAQ'}
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl lg:text-5xl font-bold mb-5">{t('faq.title')}</motion.h2>
