@@ -622,7 +622,7 @@ export default function Landing() {
 
       {/* Demo Dialog */}
       <Dialog open={demoOpen} onOpenChange={setDemoOpen}>
-        <DialogContent className="max-w-4xl rounded-2xl">
+        <DialogContent className="max-w-4xl rounded-sm">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">{language === 'bn' ? 'প্ল্যাটফর্ম ডেমো' : 'Platform Demo'}</DialogTitle>
             <DialogDescription>
