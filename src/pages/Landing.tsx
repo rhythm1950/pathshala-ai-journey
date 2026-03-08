@@ -475,7 +475,7 @@ export default function Landing() {
                       ))}
                     </ul>
                     <Link to="/auth" className="block">
-                      <Button className={`w-full py-5 rounded-xl text-sm font-bold ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
+                      <Button className={`w-full py-5 rounded-sm text-sm font-bold ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-md' : ''}`} variant={plan.popular ? 'default' : 'outline'} size="lg">
                         {plan.cta}
                       </Button>
                     </Link>
