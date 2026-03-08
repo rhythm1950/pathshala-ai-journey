@@ -31,6 +31,7 @@ import Tutorials from "./pages/Tutorials";
 import Community from "./pages/Community";
 import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
+import { ScrollToTopOnNav } from "@/components/ScrollToTopOnNav";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
