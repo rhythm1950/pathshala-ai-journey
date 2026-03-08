@@ -416,7 +416,7 @@ export default function Landing() {
                           </div>
                         ))}
                       </div>
-                      <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                      <div className="bg-primary/5 rounded-sm p-4 border border-primary/10">
                         <div className="flex items-center gap-2 mb-2">
                           <Brain className="h-4 w-4 text-primary" />
                           <span className="text-xs font-bold text-primary">{language === 'bn' ? 'AI সুপারিশ' : 'AI Recommendation'}</span>
