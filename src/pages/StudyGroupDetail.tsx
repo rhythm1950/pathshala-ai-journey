@@ -462,7 +462,7 @@ export default function StudyGroupDetail() {
                             <Badge variant="outline" className={`text-[10px] ${difficultyColors[video.difficulty] || ''}`}>{video.difficulty}</Badge>
                           </div>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 opacity-0 group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
