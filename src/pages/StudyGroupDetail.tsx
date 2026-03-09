@@ -462,7 +462,7 @@ export default function StudyGroupDetail() {
                             <Badge variant="outline" className={`text-[10px] ${difficultyColors[video.difficulty] || ''}`}>{video.difficulty}</Badge>
                           </div>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:-0 md:group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:-0 md:-0 md:group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -481,7 +481,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? note.titleBn : note.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{note.pages} {language === 'bn' ? 'পৃষ্ঠা' : 'pages'} • PDF</p>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-md:opacity-0 md:ity-0 group-hover:opacity-100 transition-opacity"><Download className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrinmd:opacity-0 md:pacity-0 md:ity-0 group-hover:opacity-100 transition-opacity"><Download className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -500,7 +500,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? link.titleBn : link.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{link.source}</p>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrinmd:opacity-0 md:9 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
