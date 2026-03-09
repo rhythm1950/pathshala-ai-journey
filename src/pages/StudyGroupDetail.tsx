@@ -425,7 +425,7 @@ export default function StudyGroupDetail() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             <Tabs defaultValue="videos">
-              <TabsList className="mb-4 flex-wrap h-auto gap-1">
+              <TabsList className="mb-4 flex-wrap h-auto gap-1 w-full overflow-x-auto">
                 <TabsTrigger value="videos" className="gap-1.5">
                   <Video className="h-3.5 w-3.5" />
                   {language === 'bn' ? 'ভিডিও' : 'Videos'}
@@ -462,7 +462,7 @@ export default function StudyGroupDetail() {
                             <Badge variant="outline" className={`text-[10px] ${difficultyColors[video.difficulty] || ''}`}>{video.difficulty}</Badge>
                           </div>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:-0 md:-0 md:-0 md:group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:-0 md:-0 md:-0 md:-0 md:group-hover:opacity-100 transition-opacity"><Play className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -481,7 +481,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? note.titleBn : note.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{note.pages} {language === 'bn' ? 'পৃষ্ঠা' : 'pages'} • PDF</p>
                         </div>
-                        <Button size="icon" variant="ghost" className=md:opacity-0 md:pacity-0 md:pacity-0 md:ity-0 group-hover:opacity-100 transition-opacity"><Download className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" clasmd:opacity-0 md:pacity-0 md:pacity-0 md:pacity-0 md:ity-0 group-hover:opacity-100 transition-opacity"><Download className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -500,7 +500,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? link.titleBn : link.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{link.source}</p>
                         </div>
-                        <Button size="icon" variant="ghost" clasmd:opacity-0 md:inmd:opacity-0 md:9 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="h-4 w-4" /></Button>
+                        <Button size="icon" variant=md:opacity-0 md:asmd:opacity-0 md:inmd:opacity-0 md:9 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -552,7 +552,7 @@ export default function StudyGroupDetail() {
                             {formatFileSize(res.file_size)} • {new Date(res.created_at).toLocaleDateString()}
                           </p>
                         </div>
-                        <div className="flex imd:opacity-0 md:r gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <divmd:opacity-0 md:="flex imd:opacity-0 md:r gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           <Button size="icon" variant="ghost" className="h-8 w-8" onClick={() => handleDownloadResource(res.file_path, res.file_name)}>
                             <Download className="h-4 w-4" />
                           </Button>

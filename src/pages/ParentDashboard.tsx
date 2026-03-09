@@ -132,12 +132,12 @@ export default function ParentDashboard() {
           </div>
 
           {/* Child Selector */}
-          <div className="flex gap-3 mt-6 mb-2 overflow-x-auto pb-2 overflow-x-auto pb-2">
+          <div className="flex gap-3 mt-6 mb-2 overflow-x-auto pb-2 overflow-x-auto pb-2 overflow-x-auto pb-2">
             {childrenData.map((c, index) => (
               <button
                 key={c.id}
                 onClick={() => setSelectedChild(index)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl bshrink-0 order transition-all ${
                   selectedChild === index
                     ? 'bg-primary/10 border-primary/30 shadow-sm'
                     : 'bg-card/50 border-border/50 hover:bg-muted/50'
@@ -210,7 +210,7 @@ export default function ParentDashboard() {
             {/* Main Content - 2 cols */}
             <div className="lg:col-span-2">
               <Tabs value={activeTab} onValueChange={setActiveTab}>
-                <TabsList className="mb-6 flex-wrap h-auto  w-full overflow-x-autogap-1 bg-muted/50 p-1" data-tour="child-progress" onClick={() => markFeatureExplored('child-progress')}>
+                <TabsList className="m w-full overflow-x-autob-6 flex-wrap h-auto  w-full overflow-x-autogap-1 bg-muted/50 p-1" data-tour="child-progress" onClick={() => markFeatureExplored('child-progress')}>
                   <TabsTrigger value="progress" className="gap-1.5 text-xs md:text-sm">
                     <TrendingUp className="h-3.5 w-3.5" />
                     {language === 'bn' ? 'অগ্রগতি' : 'Progress'}

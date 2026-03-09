@@ -9,7 +9,7 @@ export function PromoBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-primary text-primary-foreground py-2.5 px-4 text-center text-sm font-medium relative">
+    <div className="bg-primary text-primary-foreground py-2.5 px-4 pr-10 text-center text-xs sm:text-sm font-medium relative">
       <span>{t('promo.text')}</span>
       <button
         onClick={() => setIsVisible(false)}
