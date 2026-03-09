@@ -132,7 +132,7 @@ export default function ParentDashboard() {
           </div>
 
           {/* Child Selector */}
-          <div className="flex gap-3 mt-6 mb-2 overflow-x-auto pb-2">
+          <div className="flex gap-3 mt-6 mb-2 overflow-x-auto pb-2 overflow-x-auto pb-2">
             {childrenData.map((c, index) => (
               <button
                 key={c.id}
@@ -210,7 +210,7 @@ export default function ParentDashboard() {
             {/* Main Content - 2 cols */}
             <div className="lg:col-span-2">
               <Tabs value={activeTab} onValueChange={setActiveTab}>
-                <TabsList className="mb-6 flex-wrap h-auto gap-1 bg-muted/50 p-1" data-tour="child-progress" onClick={() => markFeatureExplored('child-progress')}>
+                <TabsList className="mb-6 flex-wrap h-auto  w-full overflow-x-autogap-1 bg-muted/50 p-1" data-tour="child-progress" onClick={() => markFeatureExplored('child-progress')}>
                   <TabsTrigger value="progress" className="gap-1.5 text-xs md:text-sm">
                     <TrendingUp className="h-3.5 w-3.5" />
                     {language === 'bn' ? 'অগ্রগতি' : 'Progress'}
