@@ -481,7 +481,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? note.titleBn : note.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{note.pages} {language === 'bn' ? 'পৃষ্ঠা' : 'pages'} • PDF</p>
                         </div>
-                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:y-100 transition-opacity"><Download className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:pacity"><Download className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -500,7 +500,7 @@ export default function StudyGroupDetail() {
                           <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">{language === 'bn' ? link.titleBn : link.title}</h4>
                           <p className="text-xs text-muted-foreground mt-1">{link.source}</p>
                         </div>
-                        <Button size="icon" variant=md:opacity-0 md:as"ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:y-100 transition-opacity"><ExternalLink className="h-4 w-4" /></Button>
+                        <Button size="icon" variant=md:opacity-0 md:as"ghost" className="ghost" className="shrink-0 h-9 w-9 md:opacity-0 md:ernalLink className="h-4 w-4" /></Button>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -552,7 +552,7 @@ export default function StudyGroupDetail() {
                             {formatFileSize(res.file_size)} • {new Date(res.created_at).toLocaleDateString()}
                           </p>
                         </div>
-                        <divmd:opacity-0 md:="flex imd:opacity-0 md:r gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <divmd:opacity-0 md:="flex imd:opa className="flex items-center gap-1 md:opacity-0 md:tion-opacity">
                           <Button size="icon" variant="ghost" className="h-8 w-8" onClick={() => handleDownloadResource(res.file_path, res.file_name)}>
                             <Download className="h-4 w-4" />
                           </Button>
