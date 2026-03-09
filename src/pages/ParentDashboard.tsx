@@ -132,7 +132,7 @@ export default function ParentDashboard() {
           </div>
 
           {/* Child Selector */}
-          <div className="flex gap-3 mt-6 mb-2">
+          <div className="flex gap-3 mt-6 mb-2 overflow-x-auto pb-2">
             {childrenData.map((c, index) => (
               <button
                 key={c.id}
