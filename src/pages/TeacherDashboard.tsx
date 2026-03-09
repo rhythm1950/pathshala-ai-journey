@@ -176,7 +176,7 @@ export default function TeacherDashboard() {
           )}
 
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-6 flex-wrap h-auto gap-1 bg-muted/50 p-1">
+            <TabsList className="mb-6 flex-wrap h-auto gap-1 bg-muted/50 p-1 w-full overflow-x-auto">
               <TabsTrigger value="overview" className="gap-1.5 text-xs md:text-sm">
                 <BarChart3 className="h-3.5 w-3.5" />
                 {language === 'bn' ? 'সারসংক্ষেপ' : 'Overview'}

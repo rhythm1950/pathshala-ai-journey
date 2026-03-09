@@ -153,7 +153,7 @@ export default function StudentDashboard() {
       {/* Dashboard Tabs */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="mb-6 bg-muted/50 p-1 rounded-lg">
+          <TabsList className="mb-6 bg-muted/50 p-1 rounded-lg w-full overflow-x-auto flex-wrap h-auto">
             <TabsTrigger value="overview" className="rounded-md gap-1.5 text-xs data-[state=active]:shadow-sm">
               <BarChart3 className="h-3.5 w-3.5" />
               {language === 'bn' ? 'ওভারভিউ' : 'Overview'}
