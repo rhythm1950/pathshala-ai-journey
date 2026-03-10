@@ -106,7 +106,7 @@ export function Header() {
                     className="w-5 h-3.5 rounded-[2px] object-cover ring-1 ring-border/50"
                   />
                   <span className="text-xs font-medium hidden sm:inline">{language === 'bn' ? 'বাংলা' : 'English'}</span>
-                  <svg className="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <svg className="h-3 w-3 text-muted-foreground hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="rounded-lg w-44 p-1.5">
