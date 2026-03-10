@@ -224,9 +224,6 @@ export function Header() {
                 <Link to="/notifications" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
                   <Bell className="h-4 w-4" />Notifications
                 </Link>
-                <Link to="/help" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
-                  <HelpCircle className="h-4 w-4" />Help
-                </Link>
                 <button onClick={() => { handleSignOut(); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 w-full px-4 py-3 rounded-sm text-sm font-medium text-destructive hover:bg-muted">
                   <LogOut className="h-4 w-4" />Sign Out
                 </button>
