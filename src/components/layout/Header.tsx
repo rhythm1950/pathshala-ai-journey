@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, HelpCircle, LogOut, LogIn } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, LogOut, LogIn } from 'lucide-react';
 import rahulAvatar from '@/assets/avatars/rahul.jpg';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -147,11 +147,6 @@ export function Header() {
                     <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full" />
                   </Button>
                 </Link>
-                <Link to="/help" className="hidden sm:inline-flex">
-                  <Button variant="ghost" size="icon" className="h-9 w-9 rounded-lg">
-                    <HelpCircle className="h-4 w-4" />
-                  </Button>
-                </Link>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full ml-1">
@@ -228,9 +223,6 @@ export function Header() {
                 </Link>
                 <Link to="/notifications" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
                   <Bell className="h-4 w-4" />Notifications
-                </Link>
-                <Link to="/help" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
-                  <HelpCircle className="h-4 w-4" />Help
                 </Link>
                 <button onClick={() => { handleSignOut(); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 w-full px-4 py-3 rounded-sm text-sm font-medium text-destructive hover:bg-muted">
                   <LogOut className="h-4 w-4" />Sign Out
