@@ -198,6 +198,12 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border/30 animate-fade-in space-y-1">
+            {user && (
+              <div className="px-4 py-3 mb-2 border-b border-border/30">
+                <p className="text-sm font-semibold truncate">{user.user_metadata?.full_name || user.email}</p>
+                <p className="text-xs text-muted-foreground capitalize">{role || 'User'}</p>
+              </div>
+            )}
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -212,7 +218,25 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            {!user && (
+            {user ? (
+              <>
+                <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
+                  <User className="h-4 w-4" />Profile
+                </Link>
+                <Link to="/settings" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
+                  <Settings className="h-4 w-4" />Settings
+                </Link>
+                <Link to="/notifications" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
+                  <Bell className="h-4 w-4" />Notifications
+                </Link>
+                <Link to="/help" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 px-4 py-3 rounded-sm text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted">
+                  <HelpCircle className="h-4 w-4" />Help
+                </Link>
+                <button onClick={() => { handleSignOut(); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 w-full px-4 py-3 rounded-sm text-sm font-medium text-destructive hover:bg-muted">
+                  <LogOut className="h-4 w-4" />Sign Out
+                </button>
+              </>
+            ) : (
               <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded-sm text-sm font-semibold text-primary hover:bg-muted">
                 Sign In / Sign Up
               </Link>
