@@ -147,7 +147,7 @@ export function Header() {
                     <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full" />
                   </Button>
                 </Link>
-                <Link to="/help">
+                <Link to="/help" className="hidden sm:inline-flex">
                   <Button variant="ghost" size="icon" className="h-9 w-9 rounded-lg">
                     <HelpCircle className="h-4 w-4" />
                   </Button>
