@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, HelpCircle, LogOut, LogIn } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, User, Bell, Settings, LogOut, LogIn } from 'lucide-react';
 import rahulAvatar from '@/assets/avatars/rahul.jpg';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
